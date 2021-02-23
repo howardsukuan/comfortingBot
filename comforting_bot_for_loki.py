@@ -360,10 +360,11 @@ def HandleReasons(inputSTR):
     
 
 if __name__ == "__main__":
-    inputSTR = "心情爆爆爆爆好"
-    reactionSTR = HandleFeelings(inputSTR)
-    print(reactionSTR)
+    #inputSTR = "心情爆爆爆爆好"
+    #reactionSTR = HandleFeelings(inputSTR)
+    #print(reactionSTR)
     inputSTR = "早餐店沒開"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
+    
     
