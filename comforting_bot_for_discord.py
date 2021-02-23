@@ -4,9 +4,8 @@
 import discord
 from comforting_bot_for_loki import Result as comforting
 from account_info import accountInfoDICT
-
-DISCORD_TOKEN=accountInfoDICT["DISCORD_TOKEN"]
-DISCORD_GUILD=accountInfoDICT["DISCORD_GUILD"]
+DISCORD_TOKEN= accountInfoDICT["DISCORD_TOKEN"]
+DISCORD_GUILD= accountInfoDICT["DISCORD_GUILD"]
 BOT_NAME = "dear_tree_hole"
 
 # Documention

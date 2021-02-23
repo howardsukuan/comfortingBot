@@ -55,8 +55,8 @@ except:
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = accountInfoDICT['USERNAME']
-LOKI_KEY = accountInfoDICT['LOKI_KEY']
+USERNAME = accountInfoDICT["USERNAME"]
+LOKI_KEY = accountInfoDICT["LOKI_KEY"]
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
@@ -241,8 +241,8 @@ def HandleFeelings(inputSTR):
 handleSoruceDICT = {"appearance":["下巴","嘴唇","屁股","手","appearance","皮膚","皺紋","肚子","腿","膚色","臉","身高","額頭","髮質","髮際線","鼻子"],
                     "negMood":["mood","心","很自私"],
                     "score":["低空","分數","score"],
-                    "work":["工作","work"],
-                    "schoolwork":["作業","作品"],
+                    "work":["工作","work","會議"],
+                    "schoolwork":["作業","作品","schoolwork"],
                     "colleague":["做事","同事"],
                     "weather":["天氣","weather"],
                     "family": ["爸爸","媽媽","父親","老公","親戚們"],
@@ -257,13 +257,13 @@ handleSoruceDICT = {"appearance":["下巴","嘴唇","屁股","手","appearance",
                     "relationship": ["男友","男朋友","女朋友","女友","relationship"],
                     "receipt":["發票"],
                     "ticket":["票"],
-                    "teacher":["老師"],
+                    "teacher":["老師","教授"],
                     "boss":["老闆","boss","主管"],
                     "thesis":["論文"],
                     "sthbroken":["broken"],
                     "school":["schoolLesson"],
                     "shop":["店"],
-                    "tiolet":["tiolet"],
+                    "toilet":["toilet"],
                     "houseChore":["houseChore"],
                     "future":["未來"],
                     "suicide":["suicide"],
@@ -279,7 +279,10 @@ handleSoruceDICT = {"appearance":["下巴","嘴唇","屁股","手","appearance",
                     "missOpportunity":["missOpportunity"],
                     "end":["end"],
                     "nightmare":["nightmare","惡夢"],
-                    "complainToYou":["complain","抱怨","牢騷"]
+                    "complainToYou":["complain","抱怨","牢騷"],
+                    "competition":["competition"],
+                    "cheerup":["cheerup"],
+                    "notOpen":["notOpen"]
                     }
 sourceReactionDICT = {"appearance":["大家對外表可能會有一定的要求,但是重點還是在你身上,如果你喜歡這樣的自己,那又何嘗不可?"," 外表只是一時的，只要健康就好","美醜其實都是自己定義的！所以抬頭挺胸，做自信的自己！我相信你可以！","比起皮囊，我更喜歡那裡頭的靈魂。", "不論身心靈各方面，多愛自己一點是基本呀!!!"],
                     "negMood":["雖說自己的努力不用別人去定義，但現在這個受委屈的心情是真實的，我懂你的不舒服，但現在的繼續努力，未來我相信一定會成為支持你的力量", "遇到難解之事，都會在心裡跟自己說: 我是大人 我是大人 我是大人了啊 咩噗!!!","你會練習跟自己相處，聽到自己內心的聲音。","我不會叫你加油，因為我知道你已經很努力了。"],
@@ -323,7 +326,10 @@ sourceReactionDICT = {"appearance":["大家對外表可能會有一定的要求,
                     "end":["舊的不去，新的不來，會找到新愛的"],
                     "others":["那你覺得怎麼樣?"],
                     "nightmare":["還好嗎? 感覺很可怕..."],
-                    "complainToYou":["那你一定是一個溫暖的人\n但真的很不舒服的話\n也可以試著跟他們說看看"]
+                    "complainToYou":["那你一定是一個溫暖的人\n但真的很不舒服的話\n也可以試著跟他們說看看"],
+                    "competition": ["盡力就是最棒的結果"],
+                    "cheerup":["在哪裡跌倒，就在哪裡躺下，會很快樂的!"],
+                    "notOpen":["是個可以發掘新東西的機會!"]
                     }
   
 def HandleReasons(inputSTR):
@@ -354,10 +360,10 @@ def HandleReasons(inputSTR):
     
 
 if __name__ == "__main__":
-    #inputSTR = "心情不好"
-    #reactionSTR = HandleFeelings(inputSTR)
-    #print(reactionSTR)
-    inputSTR = "我覺得很幹"
+    inputSTR = "心情爆爆爆爆好"
+    reactionSTR = HandleFeelings(inputSTR)
+    print(reactionSTR)
+    inputSTR = "早餐店沒開"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     
