@@ -43,6 +43,7 @@
 """
 import random
 import requests
+from account_info import accountInfoDICT
 try:
     from intent import Loki_feeling
     from intent import Loki_asking_for_help
@@ -54,8 +55,8 @@ except:
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = "jacksugood@gmail.com"
-LOKI_KEY = "CrnPXoKReN9a2C^p+3m++ZFA9OkKI9y"
+USERNAME = accountInfoDICT['USERNAME']
+LOKI_KEY = accountInfoDICT['LOKI_KEY']
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
