@@ -807,7 +807,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "提不起勁":
         # write your code here
         if "不起勁" in inputSTR:
-            resultDICT["source"] = "mood" 
+            resultDICT["source"] = "cheerup" 
         pass
 
     if utterance == "有人性騷擾我":
@@ -1150,6 +1150,11 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # args []
         if "牢騷" in inputSTR:
             resultDICT["source"] = "complain"  
+        pass
+    if utterance == "[早餐店]沒開":
+        # args []
+        if "沒開" in inputSTR:
+            resultDICT["source"] = "notOpen"      
         pass
 
     return resultDICT
