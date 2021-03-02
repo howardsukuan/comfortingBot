@@ -81,7 +81,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[同事]不做事":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "不做事" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]不出現":
@@ -106,42 +107,50 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[同事]大雷人":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "大雷人" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]放槍":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "放槍" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]有夠廢":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "有夠廢" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]無敵廢":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "無敵廢" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]耍廢":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "耍廢" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]耍腦":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "耍腦" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]超級雷":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "超級雷" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]超雷":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "超雷" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
         pass
 
     if utterance == "[同事]難相處":
@@ -213,7 +222,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[工作]做不完":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone"        
         pass
 
     if utterance == "[心]好累":
@@ -286,7 +296,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[比賽]輸了":
         # write your code here
         if "輸" in inputSTR:
-            resultDICT["source"] = "lose"            
+            resultDICT["source"] = "competition"            
         pass
 
     if utterance == "[沒事]":
@@ -711,13 +721,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "好想拉屎":
         # write your code here
         if "拉屎" in inputSTR:
-            resultDICT["source"] = "tiolet"
+            resultDICT["source"] = "toilet"
         pass
 
     if utterance == "家[裡]大掃除[一直]做不完很煩":
         # write your code here
-        if "大掃除" in inputSTR:
-            resultDICT["source"] = "houseChore"
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone"
         pass
 
     if utterance == "對[未來]好迷茫":
@@ -734,13 +744,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "想[上]廁所":
         # write your code here
         if "廁所" in inputSTR:
-            resultDICT["source"] = "tiolet"
+            resultDICT["source"] = "toilet"
         pass
 
     if utterance == "想[大]便":
         # write your code here
         if "大便" in inputSTR:
-            resultDICT["source"] = "tiolet"
+            resultDICT["source"] = "toilet"
         pass
 
     if utterance == "想消失":
@@ -870,7 +880,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "沒有得名":
         # write your code here
         if "得名" in  inputSTR:
-            resultDICT["source"] = "lose"
+            resultDICT["source"] = "competition"
         pass
 
     if utterance == "沒有考[上]喜歡的[學校]":
@@ -1156,5 +1166,24 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "沒開" in inputSTR:
             resultDICT["source"] = "notOpen"      
         pass
+    
+    if utterance == "被[人]誤會":
+        # args []   
+        if "誤會" in inputSTR:
+            resultDICT["source"] = "misunderstood"
+        pass
+    
+    if utterance == "[事情]好無聊":
+        # args []   
+        if "無聊" in inputSTR:
+            resultDICT["source"] = "boringWork"
+        pass
+    
+    if utterance == "踩到[狗]大便":
+        # args []  
+        if "踩到大便" in inputSTR:
+            resultDICT["source"] = "stepInPoop"
+        pass
+            
 
     return resultDICT
