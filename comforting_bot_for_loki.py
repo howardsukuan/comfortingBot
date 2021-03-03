@@ -54,14 +54,17 @@ from comfortingREF import PlainReactionLIST
 from comfortingREF import OtherReactionLIST
 from comfortingREF import SexualHarassmentLIST
 from comfortingREF import SexualHarassmentReactionLIST
+
 try:
     from intent import Loki_feeling
     from intent import Loki_asking_for_help
     from intent import Loki_complainingSentences
+    from intent import Loki_domestic_violence
 except:
-    from .intent import Loki_feeling
+    from .intent import Loki_feeling   
     from .intent import Loki_asking_for_help
     from .intent import Loki_complainingSentences
+    from .intent import Loki_domestic_violence
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
@@ -189,6 +192,10 @@ def runLoki(inputLIST):
                 # complainingSentences
                 if lokiRst.getIntent(index, resultIndex) == "complainingSentences":
                     resultDICT = Loki_complainingSentences.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
+                
+                # domestic_violence
+                if lokiRst.getIntent(index, resultIndex) == "domestic_violence":
+                    resultDICT = Loki_domestic_violence.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)                
 
     else:
         resultDICT = {"msg": lokiRst.getMessage()}
@@ -202,7 +209,6 @@ def str_normalization(inputSTR):
             return inputSTR.replace(w, "").strip()
         else:
             return inputSTR
-    
 
 
 def HandleFeelings(inputSTR):
@@ -237,12 +243,15 @@ def HandleFeelings(inputSTR):
         return random.choice(OtherReactionLIST)
     
  
-
+suicideLIST = ["活著還有什麼","我死一死","不想活","好想消失","好想死","永遠都不要醒","用我的命換","結束生命","死了算了","活著有什麼"]  
+familyLIST = ["爸","媽","家裡的人","弟弟","男友","我"]
 def HandleReasons(inputSTR):
     resultDICT = runLoki([inputSTR])
     reactionDICT  = {"source" : ""}
     if any(e in inputSTR for e in SexualHarassmentLIST):
         return random.choice(SexualHarassmentReactionLIST)
+    elif any(e or "自殺" in inputSTR for e in suicideLIST):
+        reactionDICT["source"] = "suicide"
     else:   
         try:
             SourceSTR = resultDICT["source"]
