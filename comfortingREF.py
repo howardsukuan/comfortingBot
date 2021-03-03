@@ -13,6 +13,10 @@ GoodFeelingReactionLIST = ["好替你開心!! 那你願意跟我分享一下嗎~
 PlainReactionLIST = ["那想聊的時候再跟我聊聊\n我都在", "好~ 有什麼想分享的事情再說喔!"]
 OtherReactionLIST = ["那要談談嗎?", "那要分享一下嗎?"]
 
+#性騷擾LIST
+SexualHarassmentLIST = ["處碰到我", "毛手毛腳", "抱著我不放", "發生關係", "開黃腔", "聊色", "被偷拍", "用胸部擠我", "傳裸照"]
+
+
 #3rd self defined function: respond to the reason    
 handleSoruceDICT = {"appearance":["下巴","嘴唇","屁股","手","appearance","皮膚","皺紋","肚子","腿","膚色","臉","身高","額頭","髮質","髮際線","鼻子"],
                     "negMood":["mood","心","很自私"],
