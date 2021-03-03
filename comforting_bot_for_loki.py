@@ -52,7 +52,8 @@ from comfortingREF import BadFeelingReactionLIST
 from comfortingREF import GoodFeelingReactionLIST
 from comfortingREF import PlainReactionLIST
 from comfortingREF import OtherReactionLIST
-
+from comfortingREF import SexualHarassmentLIST
+from comfortingREF import SexualHarassmentReactionLIST
 try:
     from intent import Loki_feeling
     from intent import Loki_asking_for_help
@@ -232,7 +233,7 @@ def HandleFeelings(inputSTR):
             if feelingSTR in EmotionRactionDICT[e]:
                 feelingDICT["feeling"] = e 
     except:
-        pass
+        pass  
     if feelingDICT["feeling"] == "" and any (e in inputSTR for e in PlainFeelingLIST):
         feelingDICT["feeling"] = "Plain"
     else:
@@ -245,6 +246,7 @@ def HandleFeelings(inputSTR):
         return random.choice(PlainReactionLIST )
     elif feelingDICT["feeling"] == "Other":
         return random.choice(OtherReactionLIST)
+    
 
 ##3rd self defined function: respond to the reason    
 #handleSoruceDICT = {"appearance":["下巴","嘴唇","屁股","手","appearance","皮膚","皺紋","肚子","腿","膚色","臉","身高","額頭","髮質","髮際線","鼻子"],
@@ -346,20 +348,24 @@ def HandleFeelings(inputSTR):
                     #"boringWork":["可以試著把枯燥乏味的事情遊戲化，當作一個個任務來破解或許就會比較有趣了。","其實工作總是會有無聊或是不喜歡的時候，覺得工作起來很無力的時候，或許休息一下轉換一下心情是好方法！","工作起來真的會有這些比較繁瑣、無趣的時候，相信這樣的感覺應該真的有點啊雜！我知道！謝謝你和我分享 ， 我被你度過這個無聊的時光。"],
                     #"stepInPoop":["天啊，可以去買張樂透了!"]
                     #}
-  
+ 
+
 def HandleReasons(inputSTR):
     resultDICT = runLoki([inputSTR])
     reactionDICT  = {"source" : ""}
-    try:
-        SourceSTR = resultDICT["source"]
-        for e in handleSoruceDICT.keys():
-            if SourceSTR in handleSoruceDICT[e]:
-                reactionDICT["source"] = e  
-    except:
-        pass
-    if reactionDICT["source"] == "":
-        reactionDICT["source"] = "others"
-    return random.choice(sourceReactionDICT[reactionDICT["source"]]) 
+    if any(e in inputSTR for e in SexualHarassmentLIST):
+        return random.choice(SexualHarassmentReactionLIST)
+    else:   
+        try:
+            SourceSTR = resultDICT["source"]
+            for e in handleSoruceDICT.keys():
+                if SourceSTR in handleSoruceDICT[e]:
+                    reactionDICT["source"] = e  
+        except:
+            pass
+        if reactionDICT["source"] == "":
+            reactionDICT["source"] = "others"
+            return random.choice(sourceReactionDICT[reactionDICT["source"]]) 
             
             
 
@@ -378,7 +384,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "很想大便"
+    inputSTR = "我學長突然傳裸照給我看，真的有夠噁!"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     
