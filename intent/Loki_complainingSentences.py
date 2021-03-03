@@ -131,7 +131,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[同事]耍廢":
         # write your code here
-        if "耍廢" in inputSTR:
+        if "耍廢" or "耍腦" in inputSTR:
             resultDICT["source"] = "colleagueLEI"        
         pass
 
@@ -1181,9 +1181,18 @@ def getResult(inputSTR, utterance, args, resultDICT):
     
     if utterance == "踩到[狗]大便":
         # args []  
-        if "踩到大便" in inputSTR:
+        if "大便" in inputSTR:
             resultDICT["source"] = "stepInPoop"
         pass
+    if utterance == "掃除做不完":
+        # args []
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone"        
+        pass
+    if utterance == "踩到大便":
+          # args []
+        if "大便" in inputSTR:
+            resultDICT["source"] = "stepInPoop"
             
 
     return resultDICT
