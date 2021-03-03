@@ -54,6 +54,8 @@ from comfortingREF import PlainReactionLIST
 from comfortingREF import OtherReactionLIST
 from comfortingREF import SexualHarassmentLIST
 from comfortingREF import SexualHarassmentReactionLIST
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 try:
     from intent import Loki_feeling
@@ -248,9 +250,11 @@ familyLIST = ["爸","媽","家裡的人","弟弟","男友","我"]
 def HandleReasons(inputSTR):
     resultDICT = runLoki([inputSTR])
     reactionDICT  = {"source" : ""}
+    logging.debug(f"show resultDICT {reactionDICT}")
     if any(e in inputSTR for e in SexualHarassmentLIST):
         return random.choice(SexualHarassmentReactionLIST)
-    elif any(e or "自殺" in inputSTR for e in suicideLIST):
+    elif any(e in inputSTR for e in suicideLIST):
+        logging.debug(f"show e {e}")
         reactionDICT["source"] = "suicide"
     else:   
         try:
@@ -281,7 +285,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "我學長突然傳裸照給我看，真的有夠噁!"
+    inputSTR = "我被家人揍到流血!"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     
