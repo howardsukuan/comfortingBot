@@ -246,15 +246,13 @@ def HandleFeelings(inputSTR):
     
  
 suicideLIST = ["活著還有什麼","我死一死","不想活","好想消失","好想死","永遠都不要醒","用我的命換","結束生命","死了算了","活著有什麼"]  
-familyLIST = ["爸","媽","家裡的人","弟弟","男友","我"]
+
 def HandleReasons(inputSTR):
     resultDICT = runLoki([inputSTR])
     reactionDICT  = {"source" : ""}
-    logging.debug(f"show resultDICT {reactionDICT}")
     if any(e in inputSTR for e in SexualHarassmentLIST):
         return random.choice(SexualHarassmentReactionLIST)
     elif any(e in inputSTR for e in suicideLIST):
-        logging.debug(f"show e {e}")
         reactionDICT["source"] = "suicide"
     else:   
         try:
@@ -263,13 +261,16 @@ def HandleReasons(inputSTR):
                 if SourceSTR in handleSoruceDICT[e]:
                     reactionDICT["source"] = e  
         except:
-            pass
-        if reactionDICT["source"] == "":
-            reactionDICT["source"] = "others"
-            return random.choice(sourceReactionDICT[reactionDICT["source"]]) 
+            pass   
+    if reactionDICT["source"] == "":
+        reactionDICT["source"] = "others"
+    return random.choice(sourceReactionDICT[reactionDICT["source"]]) 
             
             
 
+
+    
+    
 #def Result(inputSTR):
     #if HandleFeelings(inputSTR) != None:
         #return HandleFeelings(inputSTR) 
@@ -285,7 +286,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "我被家人揍到流血!"
+    inputSTR = "我爸爸一直揍我"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     
