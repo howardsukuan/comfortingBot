@@ -286,7 +286,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "我爸爸一直揍我"
+    inputSTR = "爸爸心情不好就揍我"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     
