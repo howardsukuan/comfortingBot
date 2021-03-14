@@ -27,7 +27,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[下巴]太圓":
         # write your code here
         resultDICT["source"] = args[0]
-        
         pass
 
     if utterance == "[世界][上]沒有我也可以":
