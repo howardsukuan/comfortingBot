@@ -1183,15 +1183,82 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "大便" in inputSTR:
             resultDICT["source"] = "stepInPoop"
         pass
+    
     if utterance == "掃除做不完":
         # args []
         if "做不完" in inputSTR:
             resultDICT["source"] = "notDone"        
         pass
+    
     if utterance == "踩到大便":
           # args []
         if "大便" in inputSTR:
             resultDICT["source"] = "stepInPoop"
-            
-
+        pass
+    
+    if utterance == "覺得[自己]很廢":
+        if "廢" in inputSTR:
+            resultDICT["source"] = "useless"
+        pass
+    
+    if utterance == "長得醜":
+        if "長得醜" in inputSTR:
+            resultDICT["source"] = "appearance"
+        pass
+    
+    if utterance == "[大家]都好厲害":
+        if "好厲害" in inputSTR:
+            resultDICT["source"] = "wit"
+        pass
+    
+    if utterance == "[自己]就是[一個][廢物]":
+        resultDICT["source"] = args[2]
+        pass
+    
+    if utterance == "[同事]很煩":
+        resultDICT["source"] = args[0]
+        pass 
+    
+    if utterance == "要我解釋[問題]":
+        resultDICT["source"] = args[0]
+        pass    
+    
+    if utterance == "又問我同樣的[東西]":
+        resultDICT["source"] = args[0]
+        pass  
+    
+    if utterance == "不知道要怎麼辦":
+        if "不知道要怎麼辦" in inputSTR:
+            resultDICT["source"] = "whattodo"
+        pass
+    
+    if utterance == "不知道該怎麼辦":
+        if "不知道該怎麼辦" in inputSTR:
+            resultDICT["source"] = "whattodo"
+        pass
+    
+    if utterance == "[常常]生病":
+        if "生病" in inputSTR:
+            resultDICT["source"] = "sick"
+        pass
+    
+    if utterance == "[進度]就會延遲":
+        resultDICT["source"] = args[0]
+        pass  
+    
+    if utterance == "就是惡性循環":
+        if "惡性循環" in inputSTR:
+            resultDICT["source"] = "progress"
+        pass
+    
+    if utterance == "要讀[好多][書]":
+        resultDICT["source"] = args[1]
+        pass        
+        
+    if utterance == "做不完的感覺":
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone"
+        pass
+        
+           
     return resultDICT
