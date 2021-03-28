@@ -265,7 +265,14 @@ def HandleReasons(inputSTR):
                 if SourceSTR in handleSoruceDICT[e]:
                     reactionDICT["source"] = e  
         except:
-            pass   
+            pass
+    if reactionDICT["source"] == "":
+        for e in handleSoruceDICT.keys():
+            for x in handleSoruceDICT[e]:
+                if x in inputSTR:
+                    reactionDICT["source"] = e
+                else:
+                    pass        
     if reactionDICT["source"] == "":
         reactionDICT["source"] = "others"    
     return random.choice(sourceReactionDICT[reactionDICT["source"]]) 
@@ -290,7 +297,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "男友常消失不見"
+    inputSTR = "誤解好多"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     
