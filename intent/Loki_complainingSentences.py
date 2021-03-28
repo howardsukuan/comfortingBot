@@ -1259,6 +1259,212 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "做不完" in inputSTR:
             resultDICT["source"] = "notDone"
         pass
+    
+    if utterance == "有好多[事情]要做":
+        resultDICT["source"] = args[0]
+        pass  
+    
+    if utterance == "時間感覺都不夠用":
+        if "時間" in inputSTR:
+            resultDICT["source"] = "timemanagement"
+        pass
+    
+    if utterance == "想留[一點]時間給自己":
+        if "時間" in inputSTR:
+            resultDICT["source"] = "timemanagement"
+        pass
+    
+    if utterance == "想留點時間給自己":
+        if "時間" in inputSTR:
+            resultDICT["source"] = "timemanagement"
+        pass
+    
+    if utterance == "[周圍]的人都很努力進修":
+        if "周圍的人" in inputSTR:
+            resultDICT["source"] = "otherpeople"
+        pass
+    
+    if utterance == "身邊的人都很聰明":
+        if "身邊的人" in inputSTR:
+            resultDICT["source"] = "otherpeople"
+        pass
+    
+    if utterance == "存不到什麼錢":
+        if "錢" in inputSTR:
+            resultDICT["source"] = "money"
+        pass
+    
+    if utterance == "[薪水]下來[一下子]就沒了":
+        resultDICT["source"] = args[0]
+        pass  
+    
+    if utterance == "都不能存錢":
+        if "錢" in inputSTR:
+            resultDICT["source"] = "money"
+        pass
+    
+    if utterance == "給爸媽生活費":
+        if "生活費" in inputSTR:
+            resultDICT["source"] = "money"
+        pass
+    
+    if utterance == "朋友都說他很忙":
+        if "朋友都說他很忙" in inputSTR:
+            resultDICT["source"] = "friend"
+        pass
+    
+    if utterance == "朋友說他很忙":
+        if "朋友說他很忙" in inputSTR:
+            resultDICT["source"] = "friend"
+        pass
+    
+    if utterance == "都說很忙":
+        if "都說很忙" in inputSTR:
+            resultDICT["source"] = "friend"
+        pass
+    
+    if utterance == "都說沒空":
+        if "沒空" in inputSTR:
+            resultDICT["source"] = "timemanagement"
+        pass
+    
+    if utterance == "忘記我的[生日]":
+        if "忘記我的生日" in inputSTR:
+            resultDICT["source"] = "forgetYou"
+        pass
+    
+    if utterance == "忘記我[生日]":
+        if "忘記我生日" in inputSTR:
+            resultDICT["source"] = "forgetYou"
+        pass
+    
+    if utterance == "都不會忘記":
+        if "都不會忘記" in inputSTR:
+            resultDICT["source"] = "forgetYou"
+        pass
+    
+    if utterance == "[任務]很難做":
+        resultDICT["source"] = args[0]
+        pass         
         
-           
+    if utterance == "不給我任何方向":
+        if "不給我任何方向" in inputSTR:
+            resultDICT["source"] = "schoolwork"
+        pass
+    
+    if utterance == "不給我方向":
+        if "不給我方向" in inputSTR:
+            resultDICT["source"] = "schoolwork"
+        pass
+    
+    if utterance == "[事情]做不好":
+        if "做不好" in inputSTR:
+            resultDICT["source"] = "perfection"
+        pass
+    
+    if utterance == "如果做不好":
+        if "做不好" in inputSTR:
+            resultDICT["source"] = "perfection"
+        pass
+    
+    if utterance == "壓力很大":
+        if "壓力" in inputSTR:
+            resultDICT["source"] = "progress"
+        pass
+    
+    if utterance == "沒有任何人可以訴苦":
+        if "訴苦" in inputSTR:
+            resultDICT["source"] = "complainToYou"
+        pass
+    
+    if utterance == "很不快樂":
+        if "不快樂" in inputSTR:
+            resultDICT["source"] = "others"
+        pass
+        
+    if utterance == "沒生活品質":
+        if "沒生活品質" in inputSTR:
+            resultDICT["source"] = "lifequality"
+        pass
+    
+    if utterance == "[一直]碎碎念":
+        if "碎碎念" in inputSTR:
+            resultDICT["source"] = "complainToYou"
+        pass
+    
+    if utterance == "不接受":
+        if "不接受" in inputSTR:
+            resultDICT["source"] = "complainToYou"
+        pass
+    
+    if utterance == "[男友]不愛我":
+        resultDICT["source"] = args[0]
+        pass          
+    
+    if utterance == "起了口角":
+        if "起了口角" in inputSTR:
+            resultDICT["source"] = "quarrel"
+        pass
+    
+    if utterance == "[同學]好虛偽":
+        if "虛偽" in inputSTR:
+            resultDICT["source"] = "friend"
+        pass 
+    
+    if utterance == "報告要同[一組]":
+        if "報告" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"
+        pass 
+    
+    if utterance == "祝福都沒有收到":
+        if "祝福都沒有收到" in inputSTR:
+            resultDICT["source"] = "forgetYou"
+        pass
+    
+    if utterance == "利用我":
+        if "利用我" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
+        pass
+    
+    if utterance == "予取予求":
+        if "予取予求" in inputSTR:
+            resultDICT["source"] = "friend"        
+        pass
+    
+    if utterance == "說我壞話":
+        if "壞話" in inputSTR:
+            resultDICT["source"] = "friend"        
+        pass
+        
+    if utterance == "好偏心":
+        if "偏心" in inputSTR:
+            resultDICT["source"] = "negMood"        
+        pass
+    
+    if utterance == "吃力不討好的工作":
+        if "吃力不討好的工作" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"        
+        pass
+    
+    if utterance == "要我背黑鍋":
+        if "背黑鍋" in inputSTR:
+            resultDICT["source"] = "colleagueLEI"                
+        pass
+    
+    if utterance == "常消失不見":
+        if "消失不見" in inputSTR:
+            resultDICT["source"] = "others"                
+        pass      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
     return resultDICT
