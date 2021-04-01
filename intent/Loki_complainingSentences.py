@@ -1454,7 +1454,11 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "常消失不見":
         if "消失不見" in inputSTR:
             resultDICT["source"] = "others"                
-        pass      
+        pass
+    
+    if utterance == "我覺得[媽媽]討厭我":
+           # args [媽媽]
+        resultDICT["source"] = args[0]
         
         
         
