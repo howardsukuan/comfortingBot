@@ -556,6 +556,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         if "一切正常" in inputSTR:
             resultDICT["source"] = args[0]
+        if "今天很遭" in inputSTR:
+            resultDICT["source"] = "mood"
         pass
 
     if utterance == "上課[超累]":
@@ -1459,16 +1461,53 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我覺得[媽媽]討厭我":
            # args [媽媽]
         resultDICT["source"] = args[0]
+    
+    if utterance == "我心好累":
+        # args []
+        if "心好累" in inputSTR:
+            resultDICT["source"] = "mood"
+    
+    if utterance == "我覺得很煩":
+        # args []
+        if "覺得很煩" in inputSTR:
+            resultDICT["source"] = "mood" 
+    
+    if utterance == "我不太確定論文的方向":
+        # args []
+        if "不太確定論文的方向" in inputSTR:
+            resultDICT["source"] = "thesis" 
+    if utterance == "[今天]好多事情要做，好煩":
+        # args [今天]
+        if "好煩" in inputSTR:
+            resultDICT["source"] = "notDone" 
+    if utterance == "事情太多了不知道要怎麼辦":
+        # args []
+        if "事情太多了" in inputSTR:
+            resultDICT["source"] = "notDone" 
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    if utterance == "我很胖":
+        # args [] 
+        if "胖" in inputSTR:
+            resultDICT["source"] = "appearance"
+
+    if utterance == "我覺得別人不喜歡我":
+        # args []
+        if "別人不喜歡我" in inputSTR:
+            resultDICT["source"] = "otherpeople" 
+    if utterance == "有人說我很貪心":
+        # args [] 
+        if "有人說我很貪心" in inputSTR:
+            resultDICT["source"] = "otherpeople"
+    if utterance == "事情都不順我的意很討厭":
+        # args []
+        if "事情都不順" in inputSTR:
+            resultDICT["source"] = "rough"
+    if utterance == "同學同組都不說話":
+        # args []
+        if "同組都不說話" in inputSTR:
+            resultDICT["source"] = "complainToYou"        
+            
+            
         
 
     return resultDICT
