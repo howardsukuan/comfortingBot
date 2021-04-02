@@ -1517,7 +1517,16 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我在[小組][裡面]很自卑 ":
         # args [小組, 裡面]
         if "很自卑" in inputSTR:
-            resultDICT["source"] = "lowSelfEsteem"        
+            resultDICT["source"] = "lowSelfEsteem"
+    if utterance == "我覺得我對我的小組沒有貢獻":
+        # args []
+        if "沒有貢獻" in inputSTR:
+            resultDICT["source"] = "lowSelfEsteem" 
+    if utterance == "我覺得很煩因為太多事情要做了":
+        # args []
+        if "太多事情" in inputSTR:
+            resultDICT["source"] = "notDone"         
+        
         
             
             
