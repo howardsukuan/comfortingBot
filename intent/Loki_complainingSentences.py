@@ -1505,7 +1505,20 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "同學同組都不說話":
         # args []
         if "同組都不說話" in inputSTR:
-            resultDICT["source"] = "complainToYou"        
+            resultDICT["source"] = "badTeamMate"
+    if utterance == "[同學]做報告都沒有貢獻怎麼辦":
+        # args [同學]
+        if "做報告都沒有貢獻" in inputSTR:
+            resultDICT["source"] = "badTeamMate"
+    if utterance == "[同學]只想從我這邊拿成果":
+        # args [同學]
+        if "只想從我這邊拿成果" in inputSTR:
+            resultDICT["source"] = "badTeamMate"
+    if utterance == "我在[小組][裡面]很自卑 ":
+        # args [小組, 裡面]
+        if "很自卑" in inputSTR:
+            resultDICT["source"] = "lowSelfEsteem"        
+        
             
             
         
