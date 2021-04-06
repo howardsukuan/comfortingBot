@@ -1525,11 +1525,40 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我覺得很煩因為太多事情要做了":
         # args []
         if "太多事情" in inputSTR:
-            resultDICT["source"] = "notDone"         
-        
-        
-            
-            
-        
+            resultDICT["source"] = "notDone"
 
+    if utterance == "什麼[時候]我才可以成功":
+        # args [時候]
+        if "才可以成功" in inputSTR:
+            resultDICT["source"] = "cheerup"        
+        
+    if utterance == "怎麼辦我覺得我[一直]失敗":
+        # args [一直]
+        if "失敗" in inputSTR:
+            resultDICT["source"] = "cheerup"        
+            
+    if utterance == "覺得寫論文壓力很大":
+        # args []            
+        if "寫論文" in inputSTR:
+            resultDICT["source"] = "thesis"
+    
+    if utterance == "[最近]身體變好差":
+        # args [最近]
+        if "身體變好差" in inputSTR:
+            resultDICT["source"] = "tired" 
+    
+    if utterance == "可是我[晚上]都睡不著":
+        # args [晚上]
+        if "睡不著" in inputSTR:
+            resultDICT["source"] = "insomia"
+    if utterance == "甚至也不想跟別人social":
+        # args []
+        if "甚至也不想跟別人social" in inputSTR:
+            resultDICT["source"] = "WanttobeAlone"
+    if utterance == "只想[每天]躲在宿舍":
+        # args [每天]
+        if "只想[每天]躲在宿舍" in inputSTR:
+            resultDICT["source"] = "WanttobeAlone"        
+            
+            
     return resultDICT
