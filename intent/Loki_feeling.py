@@ -67,6 +67,14 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # args []
         if "想哭" in inputSTR:
             resultDICT["feeling"] = "badmood"
+        if "男友" in inputSTR:
+            resultDICT["source"] = "PartnerLonely"
+        if "男朋友" in inputSTR:
+            resultDICT["source"] = "PartnerLonely"  
+        if "女友" in inputSTR:
+            resultDICT["source"] = "PartnerLonely"
+        if "女朋友" in inputSTR:
+            resultDICT["source"] = "PartnerLonely"
     if utterance == "好難過":
         # args []
         if "難過" in inputSTR:
@@ -90,10 +98,25 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "WanttobeAlone"        
     if utterance == "[心情][低潮]":
         # args [心情, 低潮] 
+        #partnerLIST = ["男友", "男朋友", "女友", "女朋友"]
         if "甚至也不想跟別人social" in inputSTR:
             resultDICT["source"] = "WanttobeAlone"
-        if "很少陪我" in inputSTR:
+        if "很少陪我" in inputSTR and "男友" in inputSTR:
             resultDICT["source"] = "noPartner"
+        if "很少陪我" in inputSTR and "男朋友" in inputSTR:
+            resultDICT["source"] = "noPartner"
+        if "很少陪我" in inputSTR and "女友" in inputSTR:
+            resultDICT["source"] = "noPartner"
+        if "很少陪我" in inputSTR and "女朋友" in inputSTR:
+            resultDICT["source"] = "noPartner"
+        if "很少陪我" in inputSTR and "老公" in inputSTR:
+            resultDICT["source"] = "noPartner"
+        if "很少陪我" in inputSTR and "老婆" in inputSTR:
+            resultDICT["source"] = "noPartner"
+        if "很少陪我" in inputSTR and "伴侶" in inputSTR:
+            resultDICT["source"] = "noPartner" 
+        if "壓抑" in inputSTR and "情緒" in inputSTR:
+            resultDICT["source"] = "PressEmotion"    
         else:
             resultDICT["feeling"] = args[1]
     if utterance == "[人生][好難]":
