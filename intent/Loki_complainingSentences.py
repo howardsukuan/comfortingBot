@@ -219,6 +219,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[屁股]好大":
         # write your code here
         resultDICT["source"] = args[0]
+        
         pass
 
     if utterance == "[工作]做不完":
@@ -564,7 +565,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "mood"
         pass
 
-    if utterance == "上課[超累]":
+    if utterance == "上課超累":
         # write your code here
         if "上課" in inputSTR:
             resultDICT["source"] = "schoolLesson"
@@ -1098,6 +1099,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
                 resultDICT["source"] = "sick"
         if "胖" in inputSTR:
             resultDICT["source"] = "appearance"
+        if "白忙" in inputSTR: 
+            resultDICT["source"] = "workWaste"
         
         
         pass
@@ -1607,7 +1610,34 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我[總是]在人[前]壓抑自己的情緒然[後]在人[後]又獨自悲傷":
         # args [總是, 前, 後, 後]
         resultDICT["source"] = "PressEmotion"
-            
+    if utterance == "[最近]跟[爸媽]吵架了":
+        # args [最近, 爸媽]
+        if args[1] in ["爸媽", "妹", "姐姐", "姊姊", "哥哥", "弟弟"]:
+            resultDICT["source"] = "family"
+        if args[1] in ["女友", "女朋友", "男友", "男友", "伴侶"]:
+                resultDICT["source"] = "partnerFight" 
+    if utterance == "我什麼[時候]才能換[工作]呢？":
+        # args [時候, 工作]
+        if args[1] in ["工作"]:
+            resultDICT["source"] = "workChange"
+        if args[1] in ["女友", "女朋友", "男友", "男友", "伴侶"]:
+                resultDICT["source"] = "partnerFight"  
+    if utterance == "我能找得到工作嗎":
+        # args []
+        if "找得到工作" in inputSTR:
+            resultDICT["source"] = "futurePathWorry" 
+    if utterance == "我能考[上][台大]嗎":
+        # args [上, 台大]
+        if "考上" in inputSTR:
+            resultDICT["source"] = "futurePathWorry" 
+    if utterance == "我的[寵物][最近]生病了":
+        # args [寵物, 最近]
+        if "寵物" in inputSTR and "生病" in inputSTR:
+            resultDICT["source"] = "petSick" 
+    if utterance == "我的[筆電][最近]壞掉了":
+        # args [筆電, 最近]
+        if "壞掉" in inputSTR:
+            resultDICT["source"] = "broken"         
         
         
     return resultDICT
