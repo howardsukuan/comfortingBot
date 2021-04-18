@@ -166,7 +166,11 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[天氣]不好":
         # write your code here
-        resultDICT["source"] = args[0]
+        for partnerFamily in ['女友', '男友', '女朋友', "男朋友", "家人", "媽媽", "爸爸", "妹妹"]:
+            if partnerFamily in inputSTR:
+                resultDICT["source"] = "partnerFamilySick"
+        else:
+            resultDICT["source"] = args[0]
         pass
 
     if utterance == "[天氣]好冷":
@@ -517,7 +521,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[錢]不夠用":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "拖延" in inputSTR:
+            resultDICT["source"] = "notDone"
+        if "絕望" in inputSTR:
+            resultDICT['source'] = "suicide" #need discussion
+        else:
+            resultDICT["source"] = args[0]
         pass
 
     if utterance == "[電腦]壞掉了":
@@ -1669,6 +1678,32 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "不想寫作業" in inputSTR:
             resultDICT["source"] = "notDone"
     
-        
+    if utterance == "我又會[一直]拖延":
+        # args [一直]
+        if "拖延" in inputSTR:
+            resultDICT["source"] = "notDone"
+    if utterance == "我會[一直]拖延":
+        # args [一直]
+        if "拖延" in inputSTR:
+            resultDICT["source"] = "notDone"
+    if utterance == "我[一直]拖延":
+        # args [一直]
+        if "拖延" in inputSTR:
+            resultDICT["source"] = "notDone"        
+    if utterance == "[我]身體不舒服":
+        # args [我] 
+        if args[0] == "我":
+            resultDICT["source"] = "selfSick"
+        if "女友" in inputSTR:
+            resultDICT["source"] = "partnerFamilySick"
+        if "男友" in inputSTR:
+            resultDICT["source"] = "partnerFamilySick"
+        if args[0] in ['女友', '男友', '女朋友', "男朋友", "家人", "媽媽", "爸爸", "妹妹"]:
+            resultDICT["source"] = "partnerFamilySick"
+    if utterance == "女友身體不舒服":
+        # args []
+        if "女友" in inputSTR:
+            resultDICT["source"] = "partnerFamilySick"
+            
         
     return resultDICT

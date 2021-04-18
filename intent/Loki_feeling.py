@@ -207,7 +207,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["feeling"] = "badmood"          
     if utterance == "超不[好]":
             # args [好]
-        resultDICT["neg_feeling"] = args[0]
+        if '不好' in inputSTR:
+            resultDICT["neg_feeling"] = "badmood"
     if utterance == "超不好的":
         # args []
         if "不好" in inputSTR:

@@ -48,7 +48,7 @@ handleSoruceDICT = {"appearance":["appearance","身體","顏值","身高","體�
                     "sthbroken":["broken","壞掉","破掉","碎掉","裂掉","壞了","破了","碎了","裂了","丟了","不見","弄丟"],
                     "school":["schoolLesson","廢課","爛課","課程","統計","微積分,""軍訓","服務學習","力學","實驗","化學","科學","通識","概論","導論","實務"],
                     "shop":["店","購物","買","採購","周年慶","特價","買一送一","貴","出清","促銷","特賣"],
-                    "toilet":["toilet","肚子痛","脹氣","緊張","不舒服","想吐","吃壞肚子","胃痛","絞痛","肚子悶","消化不良"],
+                    "toilet":["toilet","肚子痛","脹氣","緊張","想吐","吃壞肚子","胃痛","絞痛","肚子悶","消化不良"],
                     "future":["未來","將來","以後","之後","生涯","職涯","理想","夢想","目標","前途","前景","願景"],
                     "suicide":["suicide","自殺","死","消失","不想活","結束生命","用我的命換","永遠都不要醒","活著還有什麼意義","跳樓","跳海","上吊","割腕","燒炭","臥軌","輕生"],
                     "sexualHarassment":["sexualHarassment","性騷擾","毛手毛腳","開黃腔","傳裸照","偷拍","捏屁股","摸屁股","摸胸部","摸腿","摟腰","勾肩","摳手心"],
@@ -68,7 +68,7 @@ handleSoruceDICT = {"appearance":["appearance","身體","顏值","身高","體�
                     "cheerup":["cheerup"],
                     "notOpen":["notOpen"],
                     "misunderstood":["misunderstood","誤解"],
-                    "notDone":["notDone","事情","事","作業寫不完","功課寫不完","寫不完作業"],
+                    "notDone":["notDone","事情","事","作業寫不完","功課寫不完","寫不完作業", "拖延"],
                     "boringWork":["boringWork","任務"],
                     "stepInPoop":["stepInPoop"],
                     "domestic_violence" :["domestic_violence"],
@@ -101,7 +101,9 @@ handleSoruceDICT = {"appearance":["appearance","身體","顏值","身高","體�
                     "futurePathWorry":["futurePathWorry"],
                     "petSick":["petSick"],
                     "homesick":["homesick"],
-                    "tummyhurt":["tummyhurt"]
+                    "tummyhurt":["tummyhurt"],
+                    "selfSick" : ["selfSick"],
+                    "partnerFamilySick":["partnerFamilySick"]
                     }
 
 sourceReactionDICT = {"appearance":["大家對外表可能會有一定的要求,但是重點還是在你身上,如果你喜歡這樣的自己,那又何嘗不可?"," 外表只是一時的，只要健康就好","美醜其實都是自己定義的！所以抬頭挺胸，做自信的自己！我相信你可以！","比起皮囊，我更喜歡那裡頭的靈魂。", "不論身心靈各方面，多愛自己一點是基本呀!!!", "外在美跟內在美一樣重要唷，給自己多一點自信，只要人活得開心自在，就會由內散發出美麗的光芒。"],
@@ -183,6 +185,8 @@ sourceReactionDICT = {"appearance":["大家對外表可能會有一定的要求,
                     "futurePathWorry":["未來的事情人人都說不準，但你煩惱破頭的同時也錯過了讓自己開心的機會耶! 不妨出去，呼吸新鮮空氣吧!"],
                     "petSick":["天啊! 辛苦你了! 一定很難受吧! 在照顧寵物同時，也別忘了要照顧自己喔!"],
                     "homesick":["你一定覺得很寂寞，辛苦你了，一個人在外打拼，真是不容易，看看日程，找找看哪天回家一趟吧～（抱）"],
-                    "tummyhurt":['肚子一定很不舒服！如果真的不行，一定要去看醫生啊！']
+                    "tummyhurt":['肚子一定很不舒服！如果真的不行，一定要去看醫生啊！'],
+                    "selfSick":["辛苦了你了，一定要好好休息，再不舒服，一定要去看醫生啊！"],
+                    "partnerFamilySick":["最親的人生病了，你一定覺得很難過，如果可以在適度關心他們的情況之下，自己也要好好休息喔！"]
                     
                     }
