@@ -95,7 +95,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "想哭" in inputSTR:
             resultDICT["feeling"] = "badmood"
         if '想家' in inputSTR:
-            resultDICT['source'] = 'homesick'
+            resultDICT['source'] = "homesick"
+        #if '不想寫作業' in inputSTR:
+        #    resultDICT['source'] = "homesick"
         if "躲在宿舍" in inputSTR:
             resultDICT["source"] = "WanttobeAlone"        
     if utterance == "[心情][低潮]":
@@ -124,8 +126,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[人生][好難]":
         # args [人生, 好難]
         if "壓力好大" in inputSTR :
-            resultDICT["source"] = "pressure"        
-        else: 
+            resultDICT["source"] = "pressure" 
+        if "自卑" in inputSTR:
+            resultDICT["source"] = "lowSelfEsteem"
+        if "痛苦" in inputSTR:
+            resultDICT["source"] = "pressure"             
+        
+        else:  
             resultDICT["feeling"] = args[1]
     if utterance == "該怎麼辦":
         # args []

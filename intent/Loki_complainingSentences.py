@@ -1637,7 +1637,26 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "我的[筆電][最近]壞掉了":
         # args [筆電, 最近]
         if "壞掉" in inputSTR:
-            resultDICT["source"] = "broken"         
+            resultDICT["source"] = "broken" 
+    if utterance == "我跟[男友]吵架了":
+        # args [男友]
+        if args[0] in ['男友','男朋友', '女朋友', '女友', '伴侶']:
+            resultDICT["source"] = "partnerFight"
+    if utterance == "不想寫作業":
+        # args [] 
+        if "不想寫作業" in inputSTR:
+            resultDICT["source"] = "notDone"
+    
+    if utterance == "我[每天]都睡不著":
+        # args [每天]
+        if "睡不著" in inputSTR:
+            resultDICT["source"] = "insomia"
+            
+    if utterance == "我[常常]睡[不飽]":
+        # args [常常, 不飽]
+        if args[1] in ['不飽','不好']:
+            resultDICT["source"] = "insomia"
+    
         
         
     return resultDICT
