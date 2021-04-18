@@ -120,8 +120,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "很少陪我" in inputSTR and "伴侶" in inputSTR:
             resultDICT["source"] = "noPartner" 
         if "壓抑" in inputSTR and "情緒" in inputSTR:
-            resultDICT["source"] = "PressEmotion"    
-        else:
+            resultDICT["source"] = "PressEmotion" 
+        if "功課寫不完" in inputSTR:
+            resultDICT["source"] = "notDone" 
+        else: 
             resultDICT["feeling"] = args[1]
     if utterance == "[人生][好難]":
         # args [人生, 好難]

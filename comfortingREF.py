@@ -100,7 +100,8 @@ handleSoruceDICT = {"appearance":["appearance","身體","顏值","身高","體�
                     "workChange":["workChange"],
                     "futurePathWorry":["futurePathWorry"],
                     "petSick":["petSick"],
-                    "homesick":["homesick"]
+                    "homesick":["homesick"],
+                    "tummyhurt":["tummyhurt"]
                     }
 
 sourceReactionDICT = {"appearance":["大家對外表可能會有一定的要求,但是重點還是在你身上,如果你喜歡這樣的自己,那又何嘗不可?"," 外表只是一時的，只要健康就好","美醜其實都是自己定義的！所以抬頭挺胸，做自信的自己！我相信你可以！","比起皮囊，我更喜歡那裡頭的靈魂。", "不論身心靈各方面，多愛自己一點是基本呀!!!", "外在美跟內在美一樣重要唷，給自己多一點自信，只要人活得開心自在，就會由內散發出美麗的光芒。"],
@@ -181,6 +182,7 @@ sourceReactionDICT = {"appearance":["大家對外表可能會有一定的要求,
                     "workChange":["下一站會更好的! 但記得也要好好沉澱自己，機會到來時才能發揮喔!"],
                     "futurePathWorry":["未來的事情人人都說不準，但你煩惱破頭的同時也錯過了讓自己開心的機會耶! 不妨出去，呼吸新鮮空氣吧!"],
                     "petSick":["天啊! 辛苦你了! 一定很難受吧! 在照顧寵物同時，也別忘了要照顧自己喔!"],
-                    "homesick":["你一定覺得很寂寞，辛苦你了，一個人在外打拼，真是不容易，看看日程，找找看哪天回家一趟吧～（抱）"]
+                    "homesick":["你一定覺得很寂寞，辛苦你了，一個人在外打拼，真是不容易，看看日程，找找看哪天回家一趟吧～（抱）"],
+                    "tummyhurt":['肚子一定很不舒服！如果真的不行，一定要去看醫生啊！']
                     
                     }

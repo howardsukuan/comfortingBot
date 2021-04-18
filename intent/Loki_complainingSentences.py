@@ -1656,6 +1656,18 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # args [常常, 不飽]
         if args[1] in ['不飽','不好']:
             resultDICT["source"] = "insomia"
+    if utterance == "我吃壞肚子了":
+        # args []
+        if "吃壞肚子" in inputSTR:
+            resultDICT["source"] = "tummyhurt"
+    if utterance == "我看不到[未來]":
+        # args [未來]
+        if "未來" in inputSTR:
+            resultDICT["source"] = "futurePathWorry"
+    if utterance == "我不想寫作業":
+        # args []
+        if "不想寫作業" in inputSTR:
+            resultDICT["source"] = "notDone"
     
         
         
