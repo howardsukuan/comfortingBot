@@ -523,7 +523,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         if "拖延" in inputSTR:
             resultDICT["source"] = "notDone"
-        if "絕望" in inputSTR:
+        if "我好絕望" == inputSTR:
             resultDICT['source'] = "suicide" #need discussion
         else:
             resultDICT["source"] = args[0]
