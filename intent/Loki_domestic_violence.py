@@ -238,6 +238,21 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[爸爸]把[我]鎖在家[裡]":
         if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]):
             resultDICT["source"] = "domestic_violence"                
-        pass           
+        pass      
+    
+    if utterance == "[爸爸]喝醉就揍[我]":
+        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]):
+            resultDICT["source"] = "domestic_violence"                
+        pass
+    
+    if utterance == "我[姊]剛剛毫無原因就揍[我]":
+        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]):
+            resultDICT["source"] = "domestic_violence"                
+        pass      
+    
+    if utterance == "[哥哥][一直]打[我]":
+        if any(e in args[0] for e in familyLIST) and any(e in args[2] for e in familyLIST) and (args[0] != args[1]):
+            resultDICT["source"] = "domestic_violence"                
+        pass         
     
     return resultDICT

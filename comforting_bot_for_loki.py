@@ -205,7 +205,7 @@ def runLoki(inputLIST):
     return resultDICT
 
 #1st self defined function: 去除標點
-punctuationSTR = "!@#$%^&*()_+<>?:.,;。，！～~"  # add whatever you want
+punctuationSTR = "!@#$%^&*()_+<>?:.,;。，！～~ "  # add whatever you want
 def str_normalization(inputSTR):
     for w in inputSTR:
         if w in punctuationSTR:
@@ -246,9 +246,9 @@ def HandleFeelings(inputSTR):
         return random.choice(OtherReactionLIST)
     
  
-suicideLIST = ["世界不需要我","世界好像不需要我","活著還有什麼","我死一死","不想活","好想消失","好想死","永遠都不要醒","用我的命換","結束生命","死了算了","活著有什麼","活著的意義是什麼","自殺","結束這一生","想去死","想離開世界","登出人生","淡出人生","活著好累","活得好痛苦","活著好痛苦","淡出世界","登出世界"]  
+suicideLIST = ["吃了一堆安眠藥","吞了整罐安眠藥","整罐安眠藥吃下去","想逃離這個世界","人生沒什麼意義","人生沒甚麼意義","人生沒意義","了結","生命的意義是甚麼","世界不需要我","世界好像不需要我","活著還有什麼","我死一死","不想活","好想消失","好想死","永遠都不要醒","用我的命換","結束生命","死了算了","活著有什麼","活著的意義是什麼","自殺","結束這一生","想去死","想離開世界","登出人生","淡出人生","活著好累","活得好痛苦","活著好痛苦","淡出世界","登出世界","去死一死"]  
 
-endingLIST = ["好 謝謝你","謝謝你", "感謝有你", "太感謝你了", "還好有你的聆聽", "好", "好的", "好吧", "先這樣", "我知道了", "沒其他的事了", "我好多了", "我好很多了", "我的心情好很多了", "嗯嗯", "大概就這樣", "我會加油的", "掰掰", "拜拜", "bye bye", "bye","好喔謝謝你","好的謝謝你"]
+endingLIST = ["謝謝你我沒事了","好 謝謝你","謝謝你", "感謝有你", "太感謝你了", "還好有你的聆聽", "好", "好的", "好吧", "先這樣", "我知道了", "沒其他的事了", "我好多了", "我好很多了", "我的心情好很多了", "嗯嗯", "大概就這樣", "我會加油的", "掰掰", "拜拜", "bye bye", "bye","好喔謝謝你","好的謝謝你"]
 endingReactionLIST = ["真的很謝謝你和我分享！","說出來會好一點，謝謝你願意說給我聽，這也是我存在的理由。","如果我能帶給你一點點的療癒，那就足夠了，謝謝你跟我分享!"]
 def HandleReasons(inputSTR):
     resultDICT = runLoki([inputSTR])
@@ -298,7 +298,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "我受夠了 不想再忍了"
+    inputSTR = "這家店東西很難吃"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     

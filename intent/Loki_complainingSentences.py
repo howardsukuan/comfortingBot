@@ -1704,6 +1704,14 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # args []
         if "女友" in inputSTR:
             resultDICT["source"] = "partnerFamilySick"
+    if utterance == "我是大人了":
+        if "我是大人了" in inputSTR:
+            resultDICT["source"] = "IamAdult"
+    
+    if utterance == "這家店東西很難吃":
+        if "難吃" in inputSTR:
+            resultDICT["source"] = "food"
+         
             
         
     return resultDICT
