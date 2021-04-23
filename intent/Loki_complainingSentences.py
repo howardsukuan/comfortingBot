@@ -1711,6 +1711,21 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "這家店東西很難吃":
         if "難吃" in inputSTR:
             resultDICT["source"] = "food"
+
+    if utterance == "我[男友]好摳 出門都說要AA [有時候]還會裝死要我請客":
+        # args [男友, 有時候] 
+        if args[0] in ['男友', '女友'] and "好摳" in inputSTR and '都說要AA' in inputSTR and "要我請客":
+            resultDICT["source"] = "PartnerMoneyFight"
+    
+    if utterance == "我[男友]好摳":
+        # args [男友] 
+        if args[0] in ['男友', '女友'] and "好摳" in inputSTR:
+            resultDICT["source"] = "PartnerMoneyFight"
+    
+    if utterance == "分組報告組員都在擺爛":
+        # args [] 
+        if "分組報告" in inputSTR and "擺爛" in inputSTR:
+            resultDICT["source"] = "badTeamMate"
          
             
         

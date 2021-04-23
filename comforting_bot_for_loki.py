@@ -215,7 +215,8 @@ def str_normalization(inputSTR):
 
 
 def HandleFeelings(inputSTR):
-    inputSTR = str_normalization(inputSTR) 
+    inputSTR = str_normalization(inputSTR)
+    print(inputSTR)
     resultDICT = runLoki([inputSTR])
     feelingDICT = {"feeling" : ""}
     try:
@@ -298,8 +299,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "這家店東西很難吃"
+    inputSTR = "分組報告組員都在擺爛 氣死我"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
-    
     
