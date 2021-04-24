@@ -186,17 +186,18 @@ def runLoki(inputLIST):
                 # asking_for_help
                 if lokiRst.getIntent(index, resultIndex) == "asking_for_help":
                     resultDICT = Loki_asking_for_help.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
+                    
+                # domestic_violence
+                elif lokiRst.getIntent(index, resultIndex) == "domestic_violence":
+                    resultDICT = Loki_domestic_violence.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)                 
 
                 # complainingSentences
-                if lokiRst.getIntent(index, resultIndex) == "complainingSentences":
+                elif lokiRst.getIntent(index, resultIndex) == "complainingSentences":
                     resultDICT = Loki_complainingSentences.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
                 
-                # domestic_violence
-                if lokiRst.getIntent(index, resultIndex) == "domestic_violence":
-                    resultDICT = Loki_domestic_violence.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT) 
                     
                 # feeling
-                if lokiRst.getIntent(index, resultIndex) == "feeling":
+                elif lokiRst.getIntent(index, resultIndex) == "feeling":
                     resultDICT = Loki_feeling.getResult(key, lokiRst.getUtterance(index, resultIndex), lokiRst.getArgs(index, resultIndex), resultDICT)
                 
 
@@ -299,7 +300,7 @@ if __name__ == "__main__":
     #inputSTR = "心情爆爆爆爆好"
     #reactionSTR = HandleFeelings(inputSTR)
     #print(reactionSTR)
-    inputSTR = "爸爸一直傷害我"
+    inputSTR = "我覺得這家店東西真的很難吃"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     

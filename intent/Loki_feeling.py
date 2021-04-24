@@ -17,6 +17,12 @@
 DEBUG_feeling = True
 userDefinedDICT = {}
 
+familyLIST = ["爸","媽","家裡的人","弟","哥","姊","姐","妹","女友","男友","我","家人","阿公","阿嬤","叔","阿姨","舅","舅媽","伯","姑","先生","太太","老公","老婆","同居人"]
+
+violenceLIST = ["踢", "打", "扁", "傷害", "揍", "抽", "毆", "家暴","虐待", "抓", "摳","捏", "摔", "拿熱水潑", "辱罵", "燙", "殺", "髒話"]
+
+DUIviolenceLIST = ["施暴", "揮拳", "非禮", "使用暴力", "動手", "踢", "言語暴力", "罵髒話","踢", "打", "扁", "傷害", "揍", "抽", "毆", "家暴","虐待", "抓", "摳","捏", "摔", "拿熱水潑", "辱罵", "燙", "殺", "髒話" ]
+
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
     if DEBUG_feeling:
@@ -123,6 +129,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "PressEmotion" 
         if "功課寫不完" in inputSTR:
             resultDICT["source"] = "notDone" 
+        if any(x in inputSTR for x in violenceLIST):
+            resultDICT["source"] = "domestic_violence"
+
         else: 
             resultDICT["feeling"] = args[1]
     if utterance == "[人生][好難]":

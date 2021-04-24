@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/en
+#python3
 # -*- coding:utf-8 -*-
 
 """
@@ -21,7 +22,9 @@ sickness = ["流鼻涕", "腹瀉", "拉肚子", "頭痛", "頭暈", "咳嗽", "�
 
 violenceLIST = ["踢", "打", "扁", "傷害", "揍", "抽", "毆", "家暴","虐待", "抓", "摳","捏", "摔", "拿熱水潑", "辱罵", "燙", "殺", "髒話"]
 
-DUIviolenceLIST = ["施暴", "揮拳", "非禮", "使用暴力", "動手", "踢", "言語暴力", "罵髒話"]
+DUIviolenceLIST = ["施暴", "揮拳", "非禮", "使用暴力", "動手", "踢", "言語暴力", "罵髒話","踢", "打", "扁", "傷害", "揍", "抽", "毆", "家暴","虐待", "抓", "摳","捏", "摔", "拿熱水潑", "辱罵", "燙", "殺", "髒話", "動粗"]
+
+familyLIST = ["爸","媽","家裡的人","弟","哥","姊","姐","妹","女友","男友","我","家人","阿公","阿嬤","叔","阿姨","舅","舅媽","伯","姑","先生","太太","老公","老婆","同居人"]
 
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
@@ -170,9 +173,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[天氣]不好":
         # write your code here
-        for partnerFamily in ['女友', '男友', '女朋友', "男朋友", "家人", "媽媽", "爸爸", "妹妹"]:
-            if partnerFamily in inputSTR:
-                resultDICT["source"] = "partnerFamilySick"
+        if any(x in inputSTR for x in violenceLIST):
+            resultDICT["source"] = "domestic_violence"   
+        elif any(x in inputSTR for x in ['女友', '男友', '女朋友', "男朋友", "家人", "媽媽", "爸爸", "妹妹"]):
+            resultDICT["source"] = "partnerFamilySick"
         else:
             resultDICT["source"] = args[0]
         pass
@@ -221,7 +225,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[寵物]生病了":
         # write your code here
-        resultDICT["source"] = "sick"
+        if any(x in inputSTR for x in ['寵物', '貓', '狗', '鳥', '龜', '鼠', '鼬', '犬']):
+            resultDICT["source"] = "petSick"
         pass
 
     if utterance == "[屁股]好大":
@@ -244,7 +249,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[我][很好]":
         # write your code here
         if "好醜" in inputSTR:
-           resultDICT["source"] = "appearance"
+            resultDICT["source"] = "appearance"
         pass
 
     if utterance == "[我]好沒用":
@@ -318,8 +323,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[男友]亂來":
-        # write your code here
         resultDICT["source"] = args[0]
+        # write your code here
+
         pass
 
     if utterance == "[男友]劈腿":
@@ -510,7 +516,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[論文]寫得不夠精細":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "難吃" in inputSTR:
+            resultDICT["source"] = "food"
+        else: 
+            resultDICT["source"] = args[0]
         pass
 
     if utterance == "[論文]寫得很爛":
@@ -531,7 +540,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT['source'] = "suicide" #need discussion
         if "踢" in inputSTR:
             resultDICT["source"] = "domestic_violence"
-        
+        if "不做事" in inputSTR:
+            resultDICT["source"] = "badTeamMate"
         if any(x in inputSTR for x in violenceLIST):
             resultDICT["source"] = "domestic_violence"            
         else:
@@ -886,7 +896,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "沒有[朋友]":
         # write your code here
-        resultDICT["source"] = args[0]
+        if "沒地方住" in inputSTR:
+            resultDICT["source"] = "noPlacetoLive"
+        else: 
+            resultDICT["source"] = args[0]
         pass
 
     if utterance == "沒有人聽我說話":
@@ -1650,7 +1663,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "futurePathWorry" 
     if utterance == "我的[寵物][最近]生病了":
         # args [寵物, 最近]
-        if "寵物" in inputSTR and "生病" in inputSTR:
+        if any(x in inputSTR for x in ['寵物', '貓', '狗', '鳥', '龜', '鼠', '鼬', '犬']) and "生病" in inputSTR:
             resultDICT["source"] = "petSick" 
     if utterance == "我的[筆電][最近]壞掉了":
         # args [筆電, 最近]
