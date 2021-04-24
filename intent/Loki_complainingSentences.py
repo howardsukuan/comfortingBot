@@ -19,6 +19,10 @@ userDefinedDICT = {}
 
 sickness = ["流鼻涕", "腹瀉", "拉肚子", "頭痛", "頭暈", "咳嗽", "噁心", "發燒", "疲勞", "疲倦", "暈眩", "累", "食慾不振","胃潰瘍", "B型肝炎帶原者","C型肝炎帶原者","肝機能異常", "不孕症","婦科腫瘤", "高血壓", "泌尿道腫瘤","前列腺肥大","腎結石","膀胱結石","血尿","頻尿","小便無力","尿道下裂","隱睪","陰囊腫痛","夜尿","尿失禁","不孕","男性性機能異常","包皮","性病","膀胱機能異常", "甲狀腺疾病","糖尿病","肥胖","腦下垂體病變","腎上腺","甲狀腺","高尿酸","代謝異常", "咳血","氣喘","肺結核","肺腫瘤","肺炎","胸悶","支氣管炎", "掉頭髮","脂肪瘤","痘痘", "禿", "骨折","骨骼疼痛","脫臼","骨髓炎","關節退化","腰酸背痛","關節炎","骨畸形","骨腫瘤","脊椎病變","脊椎骨骨折","脊椎側彎","駝背","骨質疏鬆症","坐骨神經痛","運動傷害","容易流汗","夜汗","糖尿病","口渴","多尿","口乾","多尿","乳房分泌物","肢端肥大症","肥胖症","高血脂症","血糖過低","尿酸過高","身高異常","性別異常","癌",  "大腸炎","息肉", "中風", "腦充血"]
 
+violenceLIST = ["踢", "打", "扁", "傷害", "揍", "抽", "毆", "家暴","虐待", "抓", "摳","捏", "摔", "拿熱水潑", "辱罵", "燙", "殺", "髒話"]
+
+DUIviolenceLIST = ["施暴", "揮拳", "非禮", "使用暴力", "動手", "踢", "言語暴力", "罵髒話"]
+
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
     if DEBUG_complainingSentences:
@@ -525,6 +529,11 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "notDone"
         if "我好絕望" == inputSTR:
             resultDICT['source'] = "suicide" #need discussion
+        if "踢" in inputSTR:
+            resultDICT["source"] = "domestic_violence"
+        
+        if any(x in inputSTR for x in violenceLIST):
+            resultDICT["source"] = "domestic_violence"            
         else:
             resultDICT["source"] = args[0]
         pass
