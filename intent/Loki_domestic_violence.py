@@ -24,7 +24,7 @@ def debugInfo(inputSTR, utterance):
         print("[domestic_violence] {} ===> {}".format(inputSTR, utterance))
 violenceLIST = ["踢", "打", "扁", "傷害", "揍", "抽", "毆", "家暴","虐待", "抓", "摳","捏", "摔", "拿熱水潑", "辱罵", "燙", "殺", "髒話"]
 
-DUIviolenceLIST = ["施暴", "揮拳", "非禮", "使用暴力", "動手", "踢", "言語暴力", "罵髒話"]
+DUIviolenceLIST = ["施暴", "揮拳", "非禮", "使用暴力", "動手", "踢", "言語暴力", "罵髒話","踢", "打", "扁", "傷害", "揍", "抽", "毆", "家暴","虐待", "抓", "摳","捏", "摔", "拿熱水潑", "辱罵", "燙", "殺", "髒話","動粗" ]
 
 #("施暴" in inputSTR or "揮拳" in inputSTR or "非禮" in inputSTR or "使用暴力" in inputSTR)
 
@@ -62,7 +62,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[爸爸][喝醉酒]回來就打[媽]":
         # write your code here
-        if any(e in args[0] for e in familyLIST) and any(e in args[2] for e in familyLIST) and (args[0] != args[1]) and any(x in inputSTR for x in violenceLIST):
+        if any(e in args[0] for e in familyLIST) and any(e in args[2] for e in familyLIST) and (args[0] != args[2]) and any(x in inputSTR for x in DUIviolenceLIST):
             resultDICT["source"] = "domestic_violence"         
         pass
 
@@ -126,7 +126,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass 
     
     if utterance == "[爸爸]把[我]抓起來摔":
-        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]) and any(x in inputSTR for x in violenceLIST):
+        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]) and any(x in inputSTR for x in DUIviolenceLIST):
             resultDICT["source"] = "domestic_violence"        
         pass 
     
@@ -156,8 +156,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass  
     
     if utterance == "[爸爸]對[我]拳打腳踢":
-        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]) and any(x in inputSTR for x in violenceLIST ) and any(x in inputSTR for x in DUIviolenceLIST):
-            resultDICT["source"] = "domestic_violence"        
+        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]) :
+            if any(x in inputSTR for x in violenceLIST ) or any(x in inputSTR for x in DUIviolenceLIST):
+                resultDICT["source"] = "domestic_violence"        
         pass      
     
     if utterance == "[爸爸]拿菸燙[我]":
@@ -226,7 +227,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
     
     if utterance == "[爸爸]常對[我]使用言語暴力":
-        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]) and any(x in inputSTR for x in violenceLIST):
+        if any(e in args[0] for e in familyLIST) and any(e in args[1] for e in familyLIST) and (args[0] != args[1]) and any(x in inputSTR for x in DUIviolenceLIST):
             resultDICT["source"] = "domestic_violence"                
         pass
     

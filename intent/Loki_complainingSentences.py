@@ -227,6 +227,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         if any(x in inputSTR for x in ['寵物', '貓', '狗', '鳥', '龜', '鼠', '鼬', '犬']):
             resultDICT["source"] = "petSick"
+        if any(x in inputSTR for x in familyLIST): 
+            resultDICT["source"] = "partnerFamilySick"
         pass
 
     if utterance == "[屁股]好大":
@@ -320,6 +322,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         # write your code here
         if "沒事" in inputSTR:
             resultDICT["source"] = "nothing"
+        if "沒錢" in inputSTR:
+            resultDICT["source"] = "poor"
         pass
 
     if utterance == "[男友]亂來":
@@ -543,7 +547,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "不做事" in inputSTR:
             resultDICT["source"] = "badTeamMate"
         if any(x in inputSTR for x in violenceLIST):
-            resultDICT["source"] = "domestic_violence"            
+            resultDICT["source"] = "domestic_violence"
+        if "分手" in inputSTR: 
+            resultDICT["source"] = "relationship"
         else:
             resultDICT["source"] = args[0]
         pass
@@ -1125,6 +1131,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "mood"
         if "厭食症" in inputSTR:
             resultDICT["source"] = "Anorexia"
+        if any(x in inputSTR for x in familyLIST) and "很煩" in inputSTR:
+            resultDICT["source"] = "family"
         for sick in sickness:
             if sick in args[0]:
                 resultDICT["source"] = "sick"
@@ -1284,6 +1292,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "不知道該怎麼辦":
         if "不知道該怎麼辦" in inputSTR:
             resultDICT["source"] = "whattodo"
+        if "沒錢吃飯" in inputSTR:
+            resultDICT["source"] = "poor"
         pass
     
     if utterance == "[常常]生病":
@@ -1409,6 +1419,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[事情]做不好":
         if "做不好" in inputSTR:
             resultDICT["source"] = "perfection"
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone"
         pass
     
     if utterance == "如果做不好":
