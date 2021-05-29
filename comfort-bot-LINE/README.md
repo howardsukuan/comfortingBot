@@ -5,8 +5,7 @@
 ## 2. 環境設定
 若想在 LINE 上建置自己的 chatbot，請參考下列步驟：
 
-1. 請至 LINE Developers (https://developers.line.biz/zh-hant/)，登入您的 LINE 帳號。
-
+1. 請至 LINE Developers 登入您的 LINE 帳號。 網址為：https://developers.line.biz/zh-hant/
 2. 登入後，點選橫幅選單列中的 Products，並選擇 Messaging API，最後按下 Start now (如以下圖1.圖2所示)。
 
 ***圖 1. Products 介面***
