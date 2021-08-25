@@ -15,7 +15,7 @@
 """
 
 DEBUG_other = True
-userDefinedDICT = {"asNoun": ["家裡的人", "奇怪的人", "喜歡的人", "哥們", "身體", "周圍的人", "身邊的人", "大掃除", "天氣", "黃色笑話", "信用卡費", "東西", "遠距離", "月光族", "買一送一"], "asVerb": ["毛手毛腳", "發生關係", "開黃腔", "霸王硬上弓", "秒殺", "吃土", "錯過", "大小便"], "asAdverb": ["很", "好", "太", "超", "蠻"], "asAdjective": ["雷", "舒服"]}
+userDefinedDICT = {"asNoun": ["家裡的人", "奇怪的人", "喜歡的人", "哥們", "身體", "周圍的人", "身邊的人", "大掃除", "天氣", "黃色笑話", "信用卡費", "東西", "遠距離", "月光族", "買一送一", "計畫"], "asVerb": ["毛手毛腳", "發生關係", "開黃腔", "霸王硬上弓", "秒殺", "吃土", "錯過", "大小便", "寫論文"], "asAdverb": ["很", "好", "太", "超", "蠻", "有點"], "asAdjective": ["雷", "舒服", "好多"]}
 
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
@@ -25,487 +25,512 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     if utterance == "[一直]沒有收到交換申請的回音":
-        # write your code here
+        if "交換" in inputSTR:
+            resultDICT["source"] = "exchange"
         pass
 
+    if utterance == "[事情][無聊]到[不行]":
+        if "無聊" in inputSTR:
+            resultDICT["source"] = "boringWork"
+        pass
+
+    if utterance == "[事情][無聊]死了":
+        if "無聊" in inputSTR:
+            resultDICT["source"] = "boringWork"
+        pass
+    
     if utterance == "[事情]太多了不知道要怎麼辦":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "[今天]天氣不好":
-        # write your code here
+    if utterance == "[事情]好多，[好]煩":
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "[今天]天氣好[冷]":
-        # write your code here
+    if utterance == "[今天][天氣][好][冷]":
+        resultDICT["source"] = args[1]
         pass
 
-    if utterance == "[今天]天氣好煩":
-        # write your code here
+    if utterance == "[今天][天氣][好]煩":
+        resultDICT["source"] = args[1]
         pass
 
-    if utterance == "[今天]天氣很[糟]":
-        # write your code here
+    if utterance == "[今天][天氣]不好":
+        resultDICT["source"] = args[1]
         pass
 
-    if utterance == "[今天]好[冷]":
-        # write your code here
+    if utterance == "[今天][好][冷]":
+        resultDICT["source"] = args[2]
         pass
 
-    if utterance == "[今天]好多事情要做":
-        # write your code here
+    if utterance == "[今天]好多[事情]要做":
+        resultDICT["source"] = args[1]
+        pass
+
+    if utterance == "[作業][我][一直]拖":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[作業][我][一直]拖延":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[作業][我]不想面對":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[分數][很]難看":
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[分數]不理想":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "[分數]很難看":
-        # write your code here
+    if utterance == "[分數]爆了":
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "[天氣]好[冷]":
-        # write your code here
+    if utterance == "[大掃除][一直]做不完":
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone"
+        pass
+
+    if utterance == "[大掃除][一直]做不完[很]煩":
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone"
+        pass
+
+    if utterance == "[天氣][好][冷]":
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[工作]做不完":
-        # write your code here
+        if "做不完" in inputSTR:
+            resultDICT["source"] = "notDone" 
         pass
 
     if utterance == "[我][一直]拖延":
-        # write your code here
+        if "拖延" in inputSTR:
+            resultDICT["source"] = "notDone"          
         pass
 
-    if utterance == "[我]不太確定論文的方向":
-        # write your code here
+    if utterance == "[我][筆電][最近]壞了":
+        if "壞了" in inputSTR:
+            resultDICT["source"] = "sthBroken"   
+        pass
+
+    if utterance == "[我][筆電][最近]壞掉了":
+        if "壞掉了" in inputSTR:
+            resultDICT["source"] = "sthBroken"  
+        pass
+
+    if utterance == "[我][筆電]壞了":
+        if "壞了" in inputSTR:
+            resultDICT["source"] = "sthBroken"   
+        pass
+
+    if utterance == "[我][筆電]壞掉了":
+        if "壞掉了" in inputSTR:
+            resultDICT["source"] = "sthBroken"   
+        pass
+
+    if utterance == "[我]不太確定[論文]的方向":
+        resultDICT["source"] = args[1]
         pass
 
     if utterance == "[我]不想寫[作業]":
-        # write your code here
+        if "不想" in inputSTR:
+            resultDICT["source"] = "notDone"   
         pass
 
-    if utterance == "[我]不想面對作業":
-        # write your code here
+    if utterance == "[我]不想面對[作業]":
+        if "不想" in inputSTR:
+            resultDICT["source"] = "notDone"   
         pass
 
     if utterance == "[我]不知道[我]的實驗在做什麼":
-        # write your code here
+        if "實驗" in inputSTR:
+            resultDICT["source"] = "thesis"   
         pass
 
     if utterance == "[我]不知道[我]的實驗在幹嘛":
-        # write your code here
+        if "實驗" in inputSTR:
+            resultDICT["source"] = "thesis"   
         pass
 
     if utterance == "[我]不知道[該]怎麼辦":
-        # write your code here
+        if "該怎麼辦" in inputSTR:
+            resultDICT["source"] = "whatToDo"  
         pass
 
     if utterance == "[我]不知道要怎麼辦":
-        # write your code here
+        if "要怎麼辦" in inputSTR:
+            resultDICT["source"] = "whatToDo"  
         pass
 
-    if utterance == "[我]搶不到演唱會票":
-        # write your code here
+    if utterance == "[我]搶不到[演唱會][票]":
+        resultDICT["source"] = args[2]
         pass
 
-    if utterance == "[我]是月光族":
-        # write your code here
+    if utterance == "[我]是[月光族]":
+        resultDICT["source"] = args[1]
         pass
 
     if utterance == "[我]每個月[都][月光]":
-        # write your code here
+        resultDICT["source"] = args[2]
         pass
 
-    if utterance == "[我]的[筆電][最近]壞掉了":
-        # write your code here
+    if utterance == "[我]的[信用卡]帳單爆了":
+        if "帳單爆了" in inputSTR:
+            resultDICT["source"] = "poor"  
         pass
 
-    if utterance == "[我]的信用卡帳單爆了":
-        # write your code here
+    if utterance == "[我]的[信用卡費]爆了":
+        if "爆了" in inputSTR:
+            resultDICT["source"] = "poor" 
         pass
 
-    if utterance == "[我]的信用卡費爆了":
-        # write your code here
-        pass
-
-    if utterance == "[我]的存款太少":
-        # write your code here
-        pass
-
-    if utterance == "[我]的存款好少":
-        # write your code here
-        pass
-
-    if utterance == "[我]筆電[最近]壞了":
-        # write your code here
-        pass
-
-    if utterance == "[我]筆電[最近]壞掉了":
-        # write your code here
-        pass
-
-    if utterance == "[我]筆電壞了":
-        # write your code here
-        pass
-
-    if utterance == "[我]筆電壞掉了":
-        # write your code here
+    if utterance == "[我]的[存款][好]少":
+        resultDICT["source"] = args[1]
         pass
 
     if utterance == "[我]要吃土了":
-        # write your code here
+        if "吃土" in inputSTR:
+            resultDICT["source"] = "poor" 
         pass
 
-    if utterance == "[我]買不到票":
-        # write your code here
+    if utterance == "[我]買不到[票]":
+        resultDICT["source"] = args[1]
         pass
 
     if utterance == "[我]踩到[大][便]":
-        # write your code here
+        if "大便" in inputSTR:
+            resultDICT["source"] = "stepInPoop" 
         pass
 
-    if utterance == "[我]踩到屎":
-        # write your code here
+    if utterance == "[我]踩到[屎]":
+        resultDICT["source"] = args[1]
         pass
 
-    if utterance == "[我]踩到狗[大][便]":
-        # write your code here
+    if utterance == "[我]踩到[狗][大][便]":
+        if "大便" in inputSTR:
+            resultDICT["source"] = "stepInPoop" 
         pass
 
-    if utterance == "[我]踩到狗屎":
-        # write your code here
+    if utterance == "[我們]沒有[緣份]":
+        resultDICT["source"] = args[1]
         pass
 
-    if utterance == "[我們]沒有緣份":
-        # write your code here
+    if utterance == "[早餐店][今天]休息":
+        if "今天休息" in inputSTR:
+            resultDICT["source"] = "notOpen" 
+        pass
+
+    if utterance == "[早餐店][今天]沒開":
+        if "今天沒開" in inputSTR:
+            resultDICT["source"] = "notOpen" 
+        pass
+
+    if utterance == "[早餐店]休息":
+        if "休息" in inputSTR:
+            resultDICT["source"] = "notOpen" 
         pass
 
     if utterance == "[早餐店]沒開":
-        # write your code here
+        if "沒開" in inputSTR:
+            resultDICT["source"] = "notOpen" 
         pass
 
-    if utterance == "[東西]很難吃":
-        # write your code here
+    if utterance == "[東西][很]難吃":
+        if "難吃" in inputSTR:
+            resultDICT["source"] = "food"
+        pass
+
+    if utterance == "[東西][超]噁心":
+        if "噁心" in inputSTR:
+            resultDICT["source"] = "food"
+        pass
+
+    if utterance == "[根本]是廚餘吧":
+        if "廚餘" in inputSTR:
+            resultDICT["source"] = "food" 
+        pass
+
+    if utterance == "[演唱會][票][好]難搶":
+        resultDICT["source"] = args[1]
+        pass
+
+    if utterance == "[演唱會][票][好]難買":
+        resultDICT["source"] = args[1]
+        pass
+
+    if utterance == "[演唱會][票]沒了":
+        resultDICT["source"] = args[1]
+        pass
+
+    if utterance == "[演唱會][票]沒搶到":
+        resultDICT["source"] = args[1]
+        pass
+
+    if utterance == "[演唱會][票]賣光了":
+        resultDICT["source"] = args[1]
         pass
 
     if utterance == "[發票]又槓龜":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[發票]又沒[中]":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[發票]沒[中]":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[發票]沒有中獎":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[緣份]盡了":
-        # write your code here
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[股票]丟了[好多]錢":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[股票]損失了[好多]錢":
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[股票]虧了":
-        # write your code here
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[股票]虧了[好多]錢":
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[薪水]下來[一下子]就沒了":
-        # write your code here
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[計畫][都]沒有進步":
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[論文]寫不完":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "[都]沒有進步":
-        # write your code here
+    if utterance == "[論文]寫得[不夠][細]":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[論文]寫得[有點][爛]":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[買一送一]沒有跟到":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[進度][都]趕不[上]":
+        resultDICT["source"] = args[0]
+        pass
+
+    if utterance == "[進度]有點[落後]":
+        if "落後" in inputSTR:
+            resultDICT["source"] = args[0] 
+        pass
+
+    if utterance == "[進度]有點耽[誤]":
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "[都]沒辦法存錢":
+        if "沒辦法存錢" in inputSTR:
+            resultDICT["source"] = "noSavings"         
         # write your code here
         pass
 
     if utterance == "[錢][不夠][用]":
-        # write your code here
+        if "不夠用" in inputSTR:
+            resultDICT["source"] = "poor"  
+        pass
+
+    if utterance == "[電腦]壞了":
+        if "壞了" in inputSTR:
+            resultDICT["source"] = "sthBroken"  
         pass
 
     if utterance == "[電腦]壞掉了":
-        # write your code here
+        if "壞掉了" in inputSTR:
+            resultDICT["source"] = "sthBroken"  
         pass
 
-    if utterance == "上課好[累]":
-        # write your code here
+    if utterance == "上課[好][累]":
+        if "上課" in inputSTR:
+            resultDICT["source"] = "school"  
         pass
 
-    if utterance == "上課很煩":
-        # write your code here
-        pass
-
-    if utterance == "上課超[累]":
-        # write your code here
+    if utterance == "上課[很]煩":
+        if "上課" in inputSTR:
+            resultDICT["source"] = "school"  
         pass
 
     if utterance == "不想寫[作業]":
-        # write your code here
+        if "不想" in inputSTR:
+            resultDICT["source"] = "notDone"  
         pass
 
     if utterance == "不知道[該]怎麼辦":
-        # write your code here
+        if "該怎麼辦" in inputSTR:
+            resultDICT["source"] = "whatToDo"  
         pass
 
     if utterance == "不知道要怎麼辦":
-        # write your code here
-        pass
-
-    if utterance == "事情[無聊]到[不行]":
-        # write your code here
-        pass
-
-    if utterance == "事情[無聊]死了":
-        # write your code here
-        pass
-
-    if utterance == "事情好多，好煩":
-        # write your code here
+        if "要怎麼辦" in inputSTR:
+            resultDICT["source"] = "whatToDo"  
         pass
 
     if utterance == "交換[可能]不[會]上":
-        # write your code here
+        if "交換" in inputSTR:
+            resultDICT["source"] = "exchange"
         pass
 
-    if utterance == "交換[可能]沒機會":
-        # write your code here
+    if utterance == "交換[可能]沒[機會]":
+        if "交換" in inputSTR:
+            resultDICT["source"] = "exchange"
         pass
 
-    if utterance == "作業[我][一直]拖":
-        # write your code here
+    if utterance == "到[店][才]發現[今天]休息":
+        if "休息" in inputSTR:
+            resultDICT["source"] = args[0]
         pass
 
-    if utterance == "作業[我][一直]拖延":
-        # write your code here
-        pass
-
-    if utterance == "作業[我]不想面對":
-        # write your code here
-        pass
-
-    if utterance == "做不完的感覺":
-        # write your code here
-        pass
-
-    if utterance == "分數爆了":
-        # write your code here
-        pass
-
-    if utterance == "到店[裡][才]發現[今天]休息":
-        # write your code here
+    if utterance == "吃到[香菜][好][可怕]":
+        if "吃" in inputSTR:
+            resultDICT["source"] = "food"
         pass
 
     if utterance == "吃到難吃的[東西]":
-        # write your code here
+        if "難吃" in inputSTR:
+            resultDICT["source"] = "food"
         pass
 
-    if utterance == "吃到香菜好[可怕]":
-        # write your code here
-        pass
-
-    if utterance == "大掃除[一直]做不完":
-        # write your code here
-        pass
-
-    if utterance == "大掃除[一直]做不完很煩":
-        # write your code here
-        pass
-
-    if utterance == "天氣好[熱]":
-        # write your code here
-        pass
-
-    if utterance == "好多事情要做":
-        # write your code here
+    if utterance == "好多[事情]要做":
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "存不到什麼[錢]":
-        # write your code here
+        if "存不到" in inputSTR:
+            resultDICT["source"] = "noSavings"
         pass
 
-    if utterance == "實習好[累]":
-        # write your code here
+    if utterance == "實習[好][累]":
+        if "實習" in inputSTR:
+            resultDICT["source"] = "internship"
         pass
 
-    if utterance == "實習好廢":
-        # write your code here
+    if utterance == "實習[好]廢":
+        if "實習" in inputSTR:
+            resultDICT["source"] = "internship"
         pass
 
-    if utterance == "實習很煩":
-        # write your code here
-        pass
-
-    if utterance == "實習超[累]":
-        # write your code here
+    if utterance == "實習[很]煩":
+        if "實習" in inputSTR:
+            resultDICT["source"] = "internship"
         pass
 
     if utterance == "我沒錢":
-        # write your code here
+        if "沒錢" in inputSTR:
+            resultDICT["source"] = "poor"
         pass
 
     if utterance == "投資失利了":
-        # write your code here
-        pass
-
-    if utterance == "早餐店[今天]休息":
-        # write your code here
-        pass
-
-    if utterance == "早餐店[今天]沒開":
-        # write your code here
-        pass
-
-    if utterance == "早餐店休息":
-        # write your code here
-        pass
-
-    if utterance == "東西超噁心":
-        # write your code here
+        if "失利" in inputSTR:
+            resultDICT["source"] = "loseMoney"
         pass
 
     if utterance == "沒有考[上]喜歡的[學校]":
-        # write your code here
+        if "考上" in inputSTR:
+            resultDICT["source"] = "score"
         pass
 
-    if utterance == "演唱會票好難搶":
-        # write your code here
-        pass
-
-    if utterance == "演唱會票好難買":
-        # write your code here
-        pass
-
-    if utterance == "演唱會票沒了":
-        # write your code here
-        pass
-
-    if utterance == "演唱會票沒搶到":
-        # write your code here
-        pass
-
-    if utterance == "演唱會票賣光了":
-        # write your code here
+    if utterance == "考試[好]低分":
+        if "低分" in inputSTR:
+            resultDICT["source"] = "score"
         pass
 
     if utterance == "考試不[及格]":
-        # write your code here
-        pass
-
-    if utterance == "考試好低分":
-        # write your code here
-        pass
-
-    if utterance == "股票丟了好多錢":
-        # write your code here
-        pass
-
-    if utterance == "股票損失了好多錢":
-        # write your code here
-        pass
-
-    if utterance == "股票虧了好多錢":
-        # write your code here
+        if "不及格" in inputSTR:
+            resultDICT["source"] = "score"
         pass
 
     if utterance == "要吃土了":
-        # write your code here
+        if "吃土" in inputSTR:
+            resultDICT["source"] = "poor"
         pass
 
-    if utterance == "要看好多論文":
-        # write your code here
+    if utterance == "要看好多[論文]":
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "要讀好多書":
-        # write your code here
+    if utterance == "要讀好多[書]":
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "覺得寫論文[壓力]很[大]":
-        # write your code here
+    if utterance == "覺得[寫論文]壓力[很][大]":
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "覺得很難吃":
-        # write your code here
+    if utterance == "覺得[很]難吃":
+        if "難吃" in inputSTR:
+            resultDICT["source"] = "food"
         pass
 
-    if utterance == "課好廢":
-        # write your code here
-        pass
-
-    if utterance == "論文[不夠][精緻]":
-        # write your code here
-        pass
-
-    if utterance == "論文寫得[不夠][細]":
-        # write your code here
-        pass
-
-    if utterance == "論文寫得有[點][爛]":
-        # write your code here
-        pass
-
-    if utterance == "買一送一沒有跟到":
-        # write your code here
+    if utterance == "課[好]廢":
+        if "課" in inputSTR:
+            resultDICT["source"] = "school"
         pass
 
     if utterance == "跟[機會]擦肩而過":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "這個月[只][能]吃[吐司]了":
-        # write your code here
+        if "吃吐司" in inputSTR:
+            resultDICT["source"] = "poor"
         pass
 
     if utterance == "這個月要吃[吐司]了":
-        # write your code here
+        if "吃吐司" in inputSTR:
+            resultDICT["source"] = "poor"
         pass
 
-    if utterance == "這家店[東西]很難吃":
-        # write your code here
+    if utterance == "這家[店][東西][很]難吃":
+        if "難吃" in inputSTR:
+            resultDICT["source"] = "food"
         pass
 
-    if utterance == "這次發票又沒[中]":
-        # write your code here
+    if utterance == "這次[發票]又沒[中]":
+        resultDICT["source"] = args[0]
         pass
 
-    if utterance == "進度[都]趕不[上]":
-        # write your code here
-        pass
-
-    if utterance == "進度有[點][落後]":
-        # write your code here
-        pass
-
-    if utterance == "進度有[點]耽[誤]":
-        # write your code here
-        pass
-
-    if utterance == "還在等交換申請的結果":
-        # write your code here
-        pass
-
-    if utterance == "那是廚餘吧":
-        # write your code here
+    if utterance == "還在等交換申請的[結果]":
+        if "交換" in inputSTR:
+            resultDICT["source"] = "exchange"
         pass
 
     if utterance == "錯過這次的[機會]了":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
     if utterance == "限定[商品]沒有買到":
-        # write your code here
-        pass
-
-    if utterance == "電腦壞了":
-        # write your code here
+        resultDICT["source"] = args[0]
         pass
 
     return resultDICT
