@@ -208,9 +208,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source"] = args[0]
         pass
 
-    if utterance == "[肩膀]痠痛":
-        if "痠痛" in inputSTR:
-            resultDICT["source"] = "sick"
+    #if utterance == "[肩膀]痠痛":
+        #if "痠痛" in inputSTR:
+            #resultDICT["source"] = "sick"
         pass
 
     if utterance == "[自己]就是[一個]廢物":
@@ -232,9 +232,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source"] = args[0]
         pass
 
-    if utterance == "[都]說沒[空]":
-        resultDICT["source"] = args[0]
-        pass
+    #if utterance == "[都]說沒[空]":
+        #resultDICT["source"] = args[0]
+        #pass
 
     if utterance == "[鼻子][不夠][挺]":
         resultDICT["source"] = args[0]
@@ -265,10 +265,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "schoolwork"        
         pass
 
-    if utterance == "世界[上]沒有[我][也][可以]":
-        if "沒有" in inputSTR:
-            resultDICT["source"] = "negMood"
-        pass
+    #if utterance == "世界[上]沒有[我][也][可以]":
+        #if "沒有" in inputSTR:
+            #resultDICT["source"] = "negMood"
+        #pass
 
     if utterance == "事情[都][不順][我]的意很討厭":
         resultDICT["source"] = args[1]
@@ -279,9 +279,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "perfection"
         pass
 
-    if utterance == "什麼[時候][我][才][可以][成功]":
-        resultDICT["source"] = args[4]
-        pass
+    #if utterance == "什麼[時候][我][才][可以][成功]":
+        #resultDICT["source"] = args[4]
+        #pass
 
     if utterance == "什麼事[都]不想做":
         if "不想做" in inputSTR:
@@ -447,9 +447,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source"] = args[1]
         pass
 
-    if utterance == "想[大][便]":
-        resultDICT["source"] = args[1]
-        pass
+    #if utterance == "想[大][便]":
+        #resultDICT["source"] = args[1]
+        #pass
 
     if utterance == "想消失":
         if "消失" in inputSTR:
@@ -538,10 +538,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source"] = args[1]
         pass
 
-    if utterance == "沒[什麼][可以]分享的":
-        if "沒" in inputSTR:
-            resultDICT["source"] = "nothing"
-        pass
+    #if utterance == "沒[什麼][可以]分享的":
+        #if "沒" in inputSTR:
+            #resultDICT["source"] = "nothing"
+        #pass
 
     if utterance == "沒事":
         if "沒" in inputSTR:
@@ -588,10 +588,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "workChange"
         pass
 
-    if utterance == "為什麼大家[都][可以]做到":
-        if "做到" in inputSTR:
-            resultDICT["source"] = "envy"
-        pass
+    #if utterance == "為什麼大家[都][可以]做到":
+        #if "做到" in inputSTR:
+            #resultDICT["source"] = "envy"
+        #pass
 
     if utterance == "狀態不太好":
         if "不太好" in inputSTR:
@@ -878,5 +878,43 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "髮際線" in inputSTR:
             resultDICT["source"] = "appearance"
         pass
+    
+    if utterance == "[自己]好[渺小]":
+        resultDICT["source"] = args[1]     
+        pass
+
+    if utterance == "[都]說沒空":
+        if "沒空" in inputSTR:
+            resultDICT["source"] = "TimeManagement"
+        pass
+
+    if utterance == "世界[上]沒有[我][也]可以":
+        if "沒有" in inputSTR:
+            resultDICT["source"] = "negMood"        
+        pass
+
+    if utterance == "什麼[時候][我][才]可以[成功]":
+        resultDICT["source"] = args[3]
+        pass
+
+    if utterance == "想大便":
+        if "大便" in inputSTR:
+            resultDICT["source"] = "negMood" 
+        pass
+
+    if utterance == "沒[什麼]可以分享的":
+        if "沒" in inputSTR:
+            resultDICT["source"] = "nothing"        
+        pass
+
+    if utterance == "為什麼大家[都]可以做到":
+        if "可以做到" in inputSTR:
+            resultDICT["source"] = "envy"
+        pass
+
+    if utterance == "肩膀痠痛":
+        if "痠痛" in inputSTR:
+            resultDICT["source"] = "sick"        
+        pass    
 
     return resultDICT
