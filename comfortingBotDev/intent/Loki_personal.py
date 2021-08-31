@@ -99,10 +99,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "futurePathWorry"
         pass
 
-    if utterance == "[我][能]考[上]台[大]嗎":
-        if "考" in inputSTR:
-            resultDICT["source"] = "futurePathWorry"
-        pass
+    #if utterance == "[我][能]考[上]台[大]嗎":
+        #if "考" in inputSTR:
+            #resultDICT["source"] = "futurePathWorry"
+        #pass
 
     if utterance == "[我]什麼[時候]才[能]換工作呢":
         if "換工作" in inputSTR:
@@ -917,9 +917,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "sick"        
         pass    
 
-    #if utterance == "[我][能]考[上][台大]嗎":
-        #if "考" in inputSTR:
-            #resultDICT["source"] ="futurePathWorry"
-        #pass
+    if utterance == "[我][能]考[上][台大]嗎":
+        if "考" in inputSTR:
+            resultDICT["source"] ="futurePathWorry"
+        pass
 
     return resultDICT
