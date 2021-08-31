@@ -917,4 +917,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "sick"        
         pass    
 
+    #if utterance == "[我][能]考[上][台大]嗎":
+        #if "考" in inputSTR:
+            #resultDICT["source"] ="futurePathWorry"
+        #pass
+
     return resultDICT
