@@ -22,7 +22,7 @@
 "colleagueLIST":["同事","組員","工作夥伴","前輩","後輩","新人","助理","同組同學"]
 '''
 
-handleSoruceDICT = {
+handleSourceInterDICT = {
 # About family, pet, friend, partner
                     "family":["family"],
                     "pet":["pet"],
@@ -66,7 +66,7 @@ handleSoruceDICT = {
 }
 
 
-sourceReactionDICT = {
+sourceReactionInterDICT = {
 # About family, pet, friend, partner
                     "family":["越是親近的人，越容易用為你好當作藉口，希望你能照做，但有時候這句為你好，只是為了他們自己好。","有些事情不該因為是家人而讓步，如果你覺得不妥，就應該說出來大家好好檢視、討論。"],
                     "pet":["寵物也是有靈性的，或許有耐心地多講幾次，牠就會懂噢。","人家說寵物跟主人生活久了會變得相像，難道你家寵物也是嗎?"],

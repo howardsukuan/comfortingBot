@@ -189,7 +189,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[媽媽]覺得[我]吃太多":
-        if any(e in args[0] for e in familyLIST) and "吃太多" in inputSTR):
+        if any(e in args[0] for e in familyLIST) and ("吃太多" in inputSTR): #typo
             resultDICT["source"] = "family"
         pass
 
@@ -198,7 +198,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source"] = "familySick"
         elif any(e in args[0] for e in friendLIST) and "生病" in inputSTR:
             resultDICT["source"] = "familySick"
-        elif any(e in args[0] for e in parnterLIST) and "生病" in inputSTR:
+        elif any(e in args[0] for e in partnerLIST) and "生病" in inputSTR: #typo
             resultDICT["source"] = "familySick"  
         elif any(e in args[0] for e in petLIST) and "生病" in inputSTR:
             resultDICT["source"] = "petSick"       
@@ -220,7 +220,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]什麼[時候]才[能]換[女友]呢":
-        if any(e in args[3] for e in familyLIST) and "換" in inputSTR):
+        if any(e in args[3] for e in familyLIST) and ("換" in inputSTR):
             resultDICT["source"] = "partner"
         pass
 
@@ -246,13 +246,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]覺得[媽媽]討厭[我]":
-        if any(e in args[1] for e in familyLIST) and "討厭" in inputSTR):
+        if any(e in args[1] for e in familyLIST) and ("討厭" in inputSTR):
             resultDICT["source"] = "family"
-        elif any(e in args[1] for e in friendLIST) and "討厭" in inputSTR:
+        elif any(e in args[1] for e in friendLIST) and ("討厭" in inputSTR):
             resultDICT["source"] = "friend"
-        elif any(e in args[1] for e in partnerLIST) and "討厭" in inputSTR:
+        elif any(e in args[1] for e in partnerLIST) and ("討厭" in inputSTR):
             resultDICT["source"] = "partner"
-        elif any(e in args[1] for e in colleagueLIST) and "討厭" in inputSTR:
+        elif any(e in args[1] for e in colleagueLIST) and ("討厭" in inputSTR):
             resultDICT["source"] = "colleague"
         pass
 
@@ -266,13 +266,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[最近]跟[家裡的人]吵架了":
-        if any(e in args[1] for e in familyLIST) and "吵架" in inputSTR:
+        if any(e in args[1] for e in familyLIST) and ("吵架" in inputSTR):
             resultDICT["source"] = "family"
-        elif any(e in args[1] for e in friendLIST) and "吵架" in inputSTR:
+        elif any(e in args[1] for e in friendLIST) and ("吵架" in inputSTR):
             resultDICT["source"] = "friend"  
-        elif any(e in args[1] for e in partnerLIST) and "吵架" in inputSTR:
+        elif any(e in args[1] for e in partnerLIST) and ("吵架" in inputSTR):
             resultDICT["source"] = "partner"     
-        elif any(e in args[1] for e in colleagueLIST) and "吵架" in inputSTR:
+        elif any(e in args[1] for e in colleagueLIST) and ("吵架" in inputSTR):
             resultDICT["source"] = "colleague"
         elif "吵架" in inputSTR:
             resultDICT["source"] = "otherFight"
