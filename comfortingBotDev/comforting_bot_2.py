@@ -244,35 +244,77 @@ endingReactionLIST = ["真的很謝謝你和我分享！","說出來會好一點
 
 def HandleReasons(inputSTR):   
     resultDICT = runLoki([inputSTR])
-    reactionDICT  = {"source" : ""}
-    if any(e == inputSTR for e in endingLIST):
-        return random.choice(endingReactionLIST)        #是不是結束對話
-    else:   
-        try:
-            SourceSTR = resultDICT["source"]
-            for e in handleSourceDICT.keys():
-                if SourceSTR in handleSourceDICT[e]:
-                    reactionDICT["source"] = e  
-        except:
-            pass
-        
-    if reactionDICT["source"] == "":
+    reactionDICT  = {"source_suicide" : "","source_sexual_harassment":"","source_domestic_violence":"","source_interpersional":"","source_other":"","source_persional":""}
+    #suicide
+    try:
         for e in handleSourceDICT.keys():
-            for x in handleSourceDICT[e]:
-                if x in inputSTR:
-                    reactionDICT["source"] = e
-                else:
-                    pass        
-    if reactionDICT["source"] == "":
-        reactionDICT["source"] = "others"    
-    return random.choice(sourceReactionDICT[reactionDICT["source"]]) 
-
-
+            if resultDICT["source_suicide"] in handleSourceDICT[e]:
+                reactionDICT["source_suicide"]= e        
+        
+    except:
+        pass
+    #sexual harassment    
+    try:
+        for e in handleSourceDICT.keys():
+            if resultDICT["source_sexual_harassment"]  in handleSourceDICT[e]:
+                reactionDICT["source_sexual_harassment"]= e        
+        
+    except:
+        pass
+    #domestic violence    
+    try:
+        for e in handleSourceDICT.keys():
+            if resultDICT["source_domestic_violence"] in handleSourceDICT[e]:
+                reactionDICT["source_domestic_violence"]= e           
+    except:
+        pass
+    #others
+    try:
+        for e in handleSourceDICT.keys():
+            if resultDICT["source_domestic_other"]  in handleSourceDICT[e]:
+                reactionDICT["source_domestic_other"]= e  
+    except:
+        pass
+    
+    #interpersonal  
+    try:
+        for e in handleSourceDICT.keys():
+            if resultDICT["source_interpersonal"]  in handleSourceDICT[e]:
+                reactionDICT["source_interpersonal"]= e 
+    except:
+        pass
+        
+    #personal 
+    try:
+        for e in handleSourceDICT.keys():
+            if resultDICT["source_personal"]  in handleSourceDICT[e]:
+                reactionDICT["source_personal"]= e 
+    except:
+        pass
+    # matching reaction 
+    try:
+        #when the input can be detected by loki
+        reactionSTR = [e for e in [reactionDICT[i] for i in reactionDICT.keys()] if len(e) > 0][0]
+        return random.choice(sourceReactionDICT[reactionSTR]), reactionDICT #可以看配對狀況
+    except:
+        #when the sentence cannot be detected by loki...
+        #condition 1: sentence with ending marker
+        if any(e == inputSTR for e in endingLIST):
+            return random.choice(endingReactionLIST)
+        #condition 2: can be solved using keyword method
+        else:
+            for e in handleSourceDICT.keys():
+                for x in handleSourceDICT[e]:
+                    if x in inputSTR:
+                        return random.choice(sourceReactionDICT[e])
+                    else: #condition3: still not matched
+                        return random.choice(sourceReactionDICT["others"]) 
+    
 if __name__ == "__main__":
-    inputSTR = "比賽哭哭淚"
+    inputSTR = "我好想死"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
-    
+   
    #爸爸家暴我
    #功課寫不完
 
