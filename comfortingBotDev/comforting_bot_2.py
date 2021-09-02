@@ -246,7 +246,7 @@ def HandleReasons(inputSTR):
     resultDICT = runLoki([inputSTR])
     reactionDICT  = {"source" : ""}
     if any(e == inputSTR for e in endingLIST):
-        return random.choice(endingReactionLIST)        
+        return random.choice(endingReactionLIST)        #是不是結束對話
     else:   
         try:
             SourceSTR = resultDICT["source"]
@@ -269,7 +269,7 @@ def HandleReasons(inputSTR):
 
 
 if __name__ == "__main__":
-    inputSTR = "我功課寫不完"
+    inputSTR = "比賽哭哭淚"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
     
