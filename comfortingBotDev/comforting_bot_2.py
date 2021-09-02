@@ -311,7 +311,7 @@ def HandleReasons(inputSTR):
                         return random.choice(sourceReactionDICT["others"]) 
     
 if __name__ == "__main__":
-    inputSTR = "我好想死"
+    inputSTR = "組員超級廢唉"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
    

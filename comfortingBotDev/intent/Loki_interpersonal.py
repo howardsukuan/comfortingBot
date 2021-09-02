@@ -58,7 +58,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[同事][無敵]廢":
-        if any(e in args[0] for e in colleagueLIST) and "廢" in inputSTR:
+        if any(e in args[0] for e in colleagueLIST) and ("廢" in inputSTR):
             resultDICT["source_interpersonal"] = "badTeamMate"
         pass
 
@@ -234,7 +234,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_interpersonal"] = "familySick"
         elif any(e in args[1] for e in friendLIST) and "生病" in inputSTR:
             resultDICT["source_interpersonal"] = "familySick" 
-        elif any(e in args[0] for e in parnterLIST) and "生病" in inputSTR:
+        elif any(e in args[0] for e in partnerLIST) and "生病" in inputSTR:
             resultDICT["source_interpersonal"] = "familySick" 
         elif any(e in args[1] for e in petLIST) and "生病" in inputSTR:
             resultDICT["source_interpersonal"] = "petSick"       
@@ -404,13 +404,13 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[阿公][很]煩":
-        if any(e in args[0] for e in familyLIST) and "煩" in inputSTR:
+        if any(e in args[0] for e in familyLIST) and ("煩" in inputSTR):
             resultDICT["source_interpersonal"] = "family"
-        elif any(e in args[0] for e in friendLIST) and "煩" in inputSTR:
+        elif any(e in args[0] for e in friendLIST) and ("煩" in inputSTR):
             resultDICT["source_interpersonal"] = "friend"
-        elif any(e in args[0] for e in partnerLIST) and "煩" in inputSTR:
+        elif any(e in args[0] for e in partnerLIST) and ("煩" in inputSTR):
             resultDICT["source_interpersonal"] = "partner"
-        elif any(e in args[0] for e in colleagueLIST) and "煩" in inputSTR:
+        elif any(e in args[0] for e in colleagueLIST) and ("煩" in inputSTR):
             resultDICT["source_interpersonal"] = "colleague"
         elif any(e in args[0] for e in petLIST) and "煩" in inputSTR:
             resultDICT["source_interpersonal"] = "pet"
