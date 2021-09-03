@@ -89,7 +89,17 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_interpersonal"] = "colleague"
         pass
 
+    if utterance == "[同事]偷告狀":
+        if any(e in args[0] for e in colleagueLIST) and ("告" and "狀" in inputSTR):
+            resultDICT["source_interpersonal"] = "colleague"
+        pass
+
     if utterance == "[同事]和[我]借錢不還":
+        if "借錢不還" in inputSTR:
+            resultDICT["source_interpersonal"] = "moneyFight"
+        pass
+
+    if utterance == "[家人]向[我]借錢不還":
         if "借錢不還" in inputSTR:
             resultDICT["source_interpersonal"] = "moneyFight"
         pass
@@ -153,6 +163,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source_interpersonal"] = args[0]
         pass
 
+    if utterance == "[喜歡的人]好像對女生無感":
+        resultDICT["source_interpersonal"] = args[0]
+        pass
+
     if utterance == "[喜歡的人]拒絕[我]的告白":
         resultDICT["source_interpersonal"] = args[0]
         pass
@@ -207,13 +221,41 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_interpersonal"] = "petSick"       
         pass
 
+    if utterance == "[狗狗]生病":
+        if any(e in args[0] for e in petLIST) and ("生病" in inputSTR):
+            resultDICT["source_interpersonal"] = "petSick"
+        elif "生病" in inputSTR:
+            resultDICT["source_interpersonal"] = "familySick"
+        pass
+
     if utterance == "[家人]過世了":
         if "過世" in inputSTR:
             resultDICT["source_interpersonal"] = "death"
         pass
 
     if utterance == "[寵物]死掉了":
-        if "死掉" in inputSTR:
+        if any(e in args[0] for e in petLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif any(e in args[0] for e in familyLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif any(e in args[0] for e in friendLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif any(e in args[0] for e in colleagueLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif "死" in inputSTR:
+            resultDICT["source_interpersonal"] = "death"
+        pass
+
+    if utterance == "[寵物]死了":
+        if any(e in args[0] for e in petLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif any(e in args[0] for e in familyLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif any(e in args[0] for e in friendLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif any(e in args[0] for e in colleagueLIST) and ("死" in inputSTR):
+            resultDICT["source_interpersonal"] = "death"
+        elif "死" in inputSTR:
             resultDICT["source_interpersonal"] = "death"
         pass
 
@@ -332,6 +374,11 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_interpersonal"] = "loveBetrayal"
         pass
 
+    if utterance == "[男友]在[外面]亂來":
+        if any(e in args[0] for e in partnerLIST) and ("亂來" in inputSTR):
+            resultDICT["source_interpersonal"] = "loveBetrayal"
+        pass
+
     if utterance == "[男友]劈腿":
         if any(e in args[0] for e in partnerLIST) and ("劈腿" in inputSTR):
             resultDICT["source_interpersonal"] = "loveBetrayal"
@@ -348,7 +395,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[男友]提分手":
-        if "提分手" in inputSTR:
+        if any(e in args[0] for e in partnerLIST) and ("提分手" in inputSTR):
+            resultDICT["source_interpersonal"] = "breakup"
+        pass
+
+    if utterance == "[女朋友]向[我]提分手":
+        if any(e in args[0] for e in partnerLIST) and ("提分手" in inputSTR):
             resultDICT["source_interpersonal"] = "breakup"
         pass
 
@@ -444,7 +496,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_interpersonal"] = "noPartner"
         pass
 
-    if utterance == "想脫魯":
+    if utterance == "我想脫魯":
         if "想脫魯" in inputSTR:
             resultDICT["source_interpersonal"] = "noPartner"
         pass
@@ -458,7 +510,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source_interpersonal"] = "forgetYou"
         pass
 
-    if utterance == "有人說[我]很貪心":
+    if utterance == "有人說[我]很[貪心]":
         if "有人" in inputSTR:
             resultDICT["source_interpersonal"] = "otherPeople"
         pass
@@ -467,7 +519,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source_interpersonal"] = "noFriend"
         pass
 
-    if utterance == "沒有[任何]人[可以]訴苦":
+    if utterance == "沒有[任何]人可以訴苦":
         resultDICT["source_interpersonal"] = "listen"
         pass
 
