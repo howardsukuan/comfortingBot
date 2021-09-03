@@ -244,7 +244,7 @@ endingReactionLIST = ["真的很謝謝你和我分享！","說出來會好一點
 
 def HandleReasons(inputSTR):   
     resultDICT = runLoki([inputSTR])
-    reactionDICT  = {"source_suicide" : "","source_sexual_harassment":"","source_domestic_violence":"","source_interpersional":"","source_other":"","source_persional":""}
+    reactionDICT  = {"source_suicide" : "","source_sexual_harassment":"","source_domestic_violence":"","source_interpersonal":"","source_other":"","source_personal":""}
     #suicide
     try:
         for e in handleSourceDICT.keys():
@@ -311,7 +311,7 @@ def HandleReasons(inputSTR):
                         return random.choice(sourceReactionDICT["others"]) 
     
 if __name__ == "__main__":
-    inputSTR = "組員超級廢唉"
+    inputSTR = "朋友吵架了"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
    
