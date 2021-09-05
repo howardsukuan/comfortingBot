@@ -15,7 +15,9 @@
 """
 
 DEBUG_other = True
-userDefinedDICT = {"asNoun": ["家裡的人", "奇怪的人", "喜歡的人", "哥們", "身體", "周圍的人", "身邊的人", "大掃除", "天氣", "黃色笑話", "信用卡費", "東西", "遠距離", "月光族", "買一送一", "計畫"], "asVerb": ["毛手毛腳", "發生關係", "開黃腔", "霸王硬上弓", "秒殺", "吃土", "錯過", "大小便", "寫論文"], "asAdverb": ["很", "好", "太", "超", "蠻", "有點"], "asAdjective": ["雷", "舒服", "好多"]}
+userDefinedDICT = {"asNoun": ["家裡的人", "奇怪的人", "喜歡的人", "哥們", "身體", "周圍的人", "身邊的人", "大掃除", "天氣", "黃色笑話", "信用卡費", "東西", "遠距離", "月光族", "買一送一", "計畫", "台大", "大便", "老公", "老婆", "阿公", "阿嬤", "閃", "另一半", "教授", "莫名其妙的人", "隔壁的人", "邊緣人", "競賽", "大隊接力", "上司", "副理", "這個月", "授權碼"], "asVerb": ["毛手毛腳", "發生關係", "開黃腔", "霸王硬上弓", "秒殺", "吃土", "錯過", "大小便", "寫論文", "痠", "沒空", "拳打腳踢", "脫魯", "背"], "asAdverb": ["很", "好", "太", "超", "蠻", "有點"], "asAdjective": ["雷", "舒服", "好多", "可怕", "可以"]}
+
+from otherREF import handleSourceOtherDICT
 
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
@@ -31,16 +33,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "[事情][無聊]到[不行]":
         if "無聊" in inputSTR:
-            resultDICT["source_other"] = "boringWork"
+            resultDICT["source_other"] = "boringChores"
         pass
 
     if utterance == "[事情][無聊]死了":
         if "無聊" in inputSTR:
-            resultDICT["source_other"] = "boringWork"
-        pass
-    
-    if utterance == "[事情]太多了不知道要怎麼辦":
-        resultDICT["source_other"] = args[0]
+            resultDICT["source_other"] = "boringChores"
         pass
 
     if utterance == "[事情]好多，[好]煩":
@@ -48,7 +46,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[今天][天氣][好][冷]":
-        resultDICT["source_other"] = args[1]
+        if "天氣" in inputSTR:
+            resultDICT["source_other"] = args[1]
         pass
 
     if utterance == "[今天][天氣][好]煩":
@@ -170,7 +169,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]搶不到[演唱會][票]":
-        resultDICT["source_other"] = args[2]
+        if any(e in args[2] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("搶不到" in inputSTR):
+            resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[我]是[月光族]":
@@ -201,7 +201,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]買不到[票]":
-        resultDICT["source_other"] = args[1]
+        if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("買不到" in inputSTR):
+            resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[我]踩到[大][便]":
@@ -213,13 +214,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source_other"] = args[1]
         pass
 
-    if utterance == "[我]踩到[狗][大][便]":
-        if "大便" in inputSTR:
-            resultDICT["source_other"] = "stepInPoop" 
-        pass
-
     if utterance == "[我們]沒有[緣份]":
-        resultDICT["source_other"] = args[1]
+        if "緣" in inputSTR or "緣份" in inputSTR:
+        #if "緣" in inputSTR or "緣份" in inputSTR:
+            resultDICT["source_other"] = args[1]
         pass
 
     if utterance == "[早餐店][今天]休息":
@@ -258,23 +256,28 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[演唱會][票][好]難搶":
-        resultDICT["source_other"] = args[1]
+        if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("難搶" in inputSTR):
+            resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[演唱會][票][好]難買":
-        resultDICT["source_other"] = args[1]
+        if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("難買" in inputSTR):
+            resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[演唱會][票]沒了":
-        resultDICT["source_other"] = args[1]
+        if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("沒了" in inputSTR):
+            resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[演唱會][票]沒搶到":
-        resultDICT["source_other"] = args[1]
+        if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("沒搶到" in inputSTR):
+            resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[演唱會][票]賣光了":
-        resultDICT["source_other"] = args[1]
+        if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("賣光了" in inputSTR):
+            resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[發票]又槓龜":
@@ -371,16 +374,51 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_other"] = "sthBroken"  
         pass
 
+    if utterance == "[我]搶不到[課]":
+        if any(e in inputSTR for e in handleSourceOtherDICT["noClass"]) in inputSTR and ("搶不到" in inputSTR):
+            resultDICT["source_other"] = "noClass"
+        pass
+
+    if utterance == "[課][好]難搶":
+        if any(e in inputSTR for e in handleSourceOtherDICT["noClass"]) in inputSTR and ("難搶" in inputSTR):
+            resultDICT["source_other"] = "noClass"
+        pass
+
+    if utterance == "[課]又沒搶到":
+        if any(e in inputSTR for e in handleSourceOtherDICT["noClass"]) in inputSTR and ("又沒搶到" in inputSTR):
+            resultDICT["source_other"] = "noClass"
+        pass
+
+    if utterance == "[課]授權碼沒了":
+        if any(e in inputSTR for e in handleSourceOtherDICT["noClass"]) in inputSTR and ("授權碼" in inputSTR) and ("沒了" in inputSTR):
+            resultDICT["source_other"] = "noClass"
+        pass
+
+    if utterance == "[課]沒搶到":
+        if any(e in inputSTR for e in handleSourceOtherDICT["noClass"]) in inputSTR and ("沒搶到" in inputSTR):
+            resultDICT["source_other"] = "noClass"
+        pass
+
+    if utterance == "[課]被搶光了":
+        if any(e in inputSTR for e in handleSourceOtherDICT["noClass"]) in inputSTR and ("搶光" in inputSTR):
+            resultDICT["source_other"] = "noClass"
+        pass
+
     if utterance == "上課[好][累]":
-        if "上課" in inputSTR:
-            resultDICT["source_other"] = "school"  
+        if any(e in inputSTR for e in handleSourceOtherDICT["sickOfSchool"]) and ("累" in inputSTR):
+            resultDICT["source_other"] = "sickOfSchool"  
         pass
 
     if utterance == "上課[很]煩":
-        if "上課" in inputSTR:
-            resultDICT["source_other"] = "school"  
+        if any(e in inputSTR for e in handleSourceOtherDICT["sickOfSchool"]) and ("煩" in inputSTR):
+            resultDICT["source_other"] = "sickOfSchool"  
         pass
 
+    if utterance == "課[好]廢":
+        if any(e in inputSTR for e in handleSourceOtherDICT["sickOfSchool"]) and ("廢" in inputSTR):
+            resultDICT["source_other"] = "sickOfSchool"
+        pass
+    
     if utterance == "不想寫[作業]":
         if "不想" in inputSTR:
             resultDICT["source_other"] = "notDone"  
@@ -409,11 +447,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "到[店][才]發現[今天]休息":
         if "休息" in inputSTR:
             resultDICT["source_other"] = args[0]
-        pass
-
-    if utterance == "吃到[香菜][好][可怕]":
-        if "吃" in inputSTR:
-            resultDICT["source_other"] = "food"
         pass
 
     if utterance == "吃到難吃的[東西]":
@@ -492,23 +525,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_other"] = "food"
         pass
 
-    if utterance == "課[好]廢":
-        if "課" in inputSTR:
-            resultDICT["source_other"] = "school"
-        pass
-
     if utterance == "跟[機會]擦肩而過":
-        resultDICT["source_other"] = args[0]
-        pass
-
-    if utterance == "這個月[只][能]吃[吐司]了":
-        if "吃吐司" in inputSTR:
-            resultDICT["source_other"] = "poor"
-        pass
-
-    if utterance == "這個月要吃[吐司]了":
-        if "吃吐司" in inputSTR:
-            resultDICT["source_other"] = "poor"
+        if "機會" in inputSTR:
+            resultDICT["source_other"] = args[0]
         pass
 
     if utterance == "這家[店][東西][很]難吃":
@@ -526,17 +545,12 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "錯過這次的[機會]了":
-        resultDICT["source_other"] = args[0]
+        if "機會" in inputSTR:
+            resultDICT["source_other"] = args[0]
         pass
 
     if utterance == "限定[商品]沒有買到":
         resultDICT["source_other"] = args[0]
-        pass
-
-    if utterance == "吃到香菜好可怕":
-        # write your code here
-        if "香菜" in inputSTR:
-            resultDICT["source_other"] = "food" 
         pass
 
     if utterance == "我已經江郎才盡了":
@@ -545,4 +559,32 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["source_other"] = "whatToDo"
         pass
 
+    if utterance == "[事情][太]多不知道要怎麼辦":
+        resultDICT["source_other"] = args[0]
+        pass
+
+    if utterance == "[我]踩到[狗]大便":
+        if "大便" in inputSTR:
+            resultDICT["source_other"] = "stepInPoop" 
+        pass
+
+    if utterance == "[我]這個月[發票]又沒[中]":
+        resultDICT["source_other"] = args[1]
+        pass
+
+    if utterance == "吃到[香菜][好]可怕":
+        if "香菜" in inputSTR:
+            resultDICT["source_other"] = "food" 
+        pass
+
+    if utterance == "這個月[只][能]吃吐司了":
+        if "吃吐司" in inputSTR:
+            resultDICT["source_other"] = "poor"
+        pass
+
+    if utterance == "這個月要吃吐司了":
+        if "吃吐司" in inputSTR:
+            resultDICT["source_other"] = "poor"
+        pass
+    
     return resultDICT
