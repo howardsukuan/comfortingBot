@@ -271,8 +271,8 @@ def HandleReasons(inputSTR):
     #others
     try:
         for e in handleSourceDICT.keys():
-            if resultDICT["source_domestic_other"]  in handleSourceDICT[e]:
-                reactionDICT["source_domestic_other"]= e  
+            if resultDICT["source_other"]  in handleSourceDICT[e]:
+                reactionDICT["source_other"]= e  
     except:
         pass
     
@@ -311,12 +311,12 @@ def HandleReasons(inputSTR):
                         return random.choice(sourceReactionDICT["others"]) 
     
 if __name__ == "__main__":
-    inputSTR = "家人很煩"
+    inputSTR = "課都搶不到"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
    
-   #爸爸家暴我
-   #功課寫不完
+    #爸爸家暴我
+    #功課寫不完
 
     # 輸入其它句子試看看
     #inputLIST = ["輸入你的內容1", "輸入你的內容2"]
