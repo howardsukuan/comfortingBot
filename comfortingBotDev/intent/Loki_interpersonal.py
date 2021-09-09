@@ -534,7 +534,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "沒有[朋友]":
-        resultDICT["source_interpersonal"] = "noFriend"
+        resultDICT["source_interpersonal"] = args[0] #"noFriend" 0909 robin
         pass
 
     if utterance == "沒有人聽[我]說話":

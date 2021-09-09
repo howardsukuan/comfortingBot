@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 # -*- coding:utf-8 -*-
 
 """
@@ -311,7 +312,8 @@ def HandleReasons(inputSTR):
                         return random.choice(sourceReactionDICT["others"]) 
     
 if __name__ == "__main__":
-    inputSTR = "上司很煩"
+
+    inputSTR = "做了很久但是都沒有成效"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
    

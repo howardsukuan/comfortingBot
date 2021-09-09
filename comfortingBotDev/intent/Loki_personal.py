@@ -305,7 +305,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "做了很[久]但是[都]沒有成效":
-        if "沒有成效" in inputSTR:
+        if "成效" in inputSTR:
             resultDICT["source_personal"] = "workWaste"
         pass
 
