@@ -360,8 +360,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[錢][不夠][用]":
-        if "不夠用" in inputSTR:
-            resultDICT["source_other"] = "poor"  
+        resultDICT["source_other"] = args[0]
+        #if "錢" and "不夠用" in inputSTR: #多加 錢 這個條件
+        #    resultDICT["source_other"] = "poor"  
         pass
 
     if utterance == "[電腦]壞了":

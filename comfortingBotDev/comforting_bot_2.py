@@ -313,7 +313,7 @@ def HandleReasons(inputSTR):
     
 if __name__ == "__main__":
 
-    inputSTR = "做了很久但是都沒有成效"
+    inputSTR = "錢不夠用"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
    

@@ -488,7 +488,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "感覺努力沒有被看見":
         if "沒有被看見" in inputSTR:
-            resultDICT["source_personal"] = "negMood"
+            resultDICT["source_personal"] = "workWaste"
         pass 
 
     if utterance == "憑什麼[小明]比較被[妹妹]喜歡":
@@ -609,7 +609,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "班[上]的人[都]不和[我]說話":
-        if "說話" in inputSTR:
+        if "不" and "說話" in inputSTR:
             resultDICT["source_personal"] = "bully"
         pass
 
