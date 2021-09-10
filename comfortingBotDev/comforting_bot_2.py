@@ -245,6 +245,8 @@ endingReactionLIST = ["真的很謝謝你和我分享！","說出來會好一點
 
 def HandleReasons(inputSTR):   
     resultDICT = runLoki([inputSTR])
+
+    #print(resultDICT)
     reactionDICT  = {"source_suicide" : "","source_sexual_harassment":"","source_domestic_violence":"","source_interpersonal":"","source_other":"","source_personal":""}
     #suicide
     try:
@@ -271,9 +273,11 @@ def HandleReasons(inputSTR):
         pass
     #others
     try:
-        for e in handleSourceDICT.keys():
-            if resultDICT["source_other"]  in handleSourceDICT[e]:
-                reactionDICT["source_other"]= e  
+        for e in handleSourceOtherDICT.keys():
+            #print(e + "other") #測試用
+            if resultDICT["source_other"]  in handleSourceOtherDICT[e]:
+                reactionDICT["source_other"]= e 
+                #print(e + "ver1")
     except:
         pass
     
@@ -287,8 +291,9 @@ def HandleReasons(inputSTR):
         
     #personal 
     try:
-        for e in handleSourceDICT.keys():
-            if resultDICT["source_personal"]  in handleSourceDICT[e]:
+        for e in handleSourcePersonalDICT.keys():
+            #print(e) #測試用
+            if resultDICT["source_personal"]  in handleSourcePersonalDICT[e]:
                 reactionDICT["source_personal"]= e 
     except:
         pass
@@ -296,6 +301,7 @@ def HandleReasons(inputSTR):
     try:
         #when the input can be detected by loki
         reactionSTR = [e for e in [reactionDICT[i] for i in reactionDICT.keys()] if len(e) > 0][0]
+        #print(reactionDICT)
         return random.choice(sourceReactionDICT[reactionSTR]), reactionDICT #可以看配對狀況
     except:
         #when the sentence cannot be detected by loki...
@@ -313,7 +319,7 @@ def HandleReasons(inputSTR):
     
 if __name__ == "__main__":
 
-    inputSTR = "錢不夠用"
+    inputSTR = "覺得微不足道"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
    

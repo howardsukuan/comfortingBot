@@ -57,7 +57,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[作業]想不出怎麼做":
-        resultDICT["source_personal"] = args[0]
+        if "怎麼做" in inputSTR:
+            resultDICT["source_personal"] = "schoolwork"
+        #resultDICT["source_personal"] = args[0]
         pass
 
     if utterance == "[分數]不理想":
@@ -742,7 +744,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "覺得[我][不夠]好":
-        resultDICT["source_personal"] = args[1]
+        if "不夠" and "好" in inputSTR:
+            resultDICT["source_personal"] = "lowSelfEsteem"
+        #resultDICT["source_personal"] = args[1]
         pass
 
     if utterance == "覺得[我]很胖":
@@ -783,7 +787,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "覺得[自己]很廢":
         if "很廢" in inputSTR:
-            resultDICT["source_personal"] = "workWaste"
+            resultDICT["source_personal"] = "lowSelfEsteem"
         pass
 
     if utterance == "覺得不開心":
@@ -816,7 +820,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "覺得微不足道":
-        if "爆炸" in inputSTR:
+        if "微不足道" in inputSTR:
             resultDICT["source_personal"] = "lowSelfEsteem"
         pass
 
