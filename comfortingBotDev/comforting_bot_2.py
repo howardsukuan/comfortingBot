@@ -283,8 +283,8 @@ def HandleReasons(inputSTR):
     
     #interpersonal  
     try:
-        for e in handleSourceDICT.keys():
-            if resultDICT["source_interpersonal"]  in handleSourceDICT[e]:
+        for e in handleSourceInterDICT.keys():
+            if resultDICT["source_interpersonal"]  in handleSourceInterDICT[e]:
                 reactionDICT["source_interpersonal"]= e 
     except:
         pass
@@ -319,7 +319,7 @@ def HandleReasons(inputSTR):
     
 if __name__ == "__main__":
 
-    inputSTR = "覺得微不足道"
+    inputSTR = "現在超想家"
     reactionSTR = HandleReasons(inputSTR)
     print(reactionSTR)
    

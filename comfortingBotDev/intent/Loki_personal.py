@@ -151,6 +151,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[我]覺得[我][能力][不足]":
         if "能力" and "不足" in inputSTR:
             resultDICT["source_personal"] = "noAbility"
+        if "微不足道" in inputSTR:
+            resultDICT["source_personal"] = "lowSelfEsteem"
+        if "很雖" in inputSTR: 
+            resultDICT["source_personal"] = "rough"            
         pass
 
     if utterance == "[我]覺得[我]很雖":
@@ -818,12 +822,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "難過" in inputSTR:
             resultDICT["source_personal"] = "negMood"
         pass
-
-    if utterance == "覺得微不足道":
-        if "微不足道" in inputSTR:
-            resultDICT["source_personal"] = "lowSelfEsteem"
-        pass
-
+        
     if utterance == "覺得被忽略":
         if "被忽略" in inputSTR:
             resultDICT["source_personal"] = "negMood"        
