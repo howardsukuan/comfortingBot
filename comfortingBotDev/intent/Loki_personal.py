@@ -31,11 +31,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["source_personal"] = "annoyed"
         pass
 
-    if utterance == "[今天]很遭":
-        if "很糟" in inputSTR:
-            resultDICT["source_personal"] = "negMood"
-        pass
-
     if utterance == "[作品]被退件了":
         resultDICT["source_personal"] = "schoolwork"
         pass
@@ -154,7 +149,9 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if "微不足道" in inputSTR:
             resultDICT["source_personal"] = "lowSelfEsteem"
         if "很雖" in inputSTR: 
-            resultDICT["source_personal"] = "rough"            
+            resultDICT["source_personal"] = "rough" 
+        if "厭食症" in inputSTR:
+            resultDICT["source_personal"] = "Anorexia"
         pass
 
     if utterance == "[我]覺得[我]很雖":
@@ -244,7 +241,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
         #pass
 
     if utterance == "[鼻子][不夠][挺]":
-        resultDICT["source_personal"] = args[0]
+        if "很糟" in inputSTR:
+            resultDICT["source_personal"] = "negMood"
+        if "鼻子" in inputSTR:
+            resultDICT["source_personal"] = "appearance"
         pass
 
     if utterance == "下巴太[圓]":
@@ -421,11 +421,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
                 resultDICT["source_personal"] = "negMood"
         pass
 
-    if utterance == "得了厭食症":
-        if "厭食症" in inputSTR: 
-            resultDICT["source_personal"] = "Anorexia"
-        pass
-
     if utterance == "心情不好":
         if "心情" in inputSTR:
             resultDICT["source_personal"] = "negMood"
@@ -457,11 +452,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
     #if utterance == "想[大][便]":
         #resultDICT["source_personal"] = args[1]
         #pass
-
-    if utterance == "想消失":
-        if "消失" in inputSTR:
-            resultDICT["source_personal"] = "negMood"
-        pass
 
     if utterance == "想留[一點]時間給[自己]":
         if "時間" in inputSTR:
@@ -864,7 +854,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "長痘痘":
-        if "身體" in inputSTR:
+        if "痘痘" in inputSTR:
             resultDICT["source_personal"] = "appearance" 
         pass
 
@@ -902,8 +892,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "想大便":
-        if "大便" in inputSTR:
-            resultDICT["source_personal"] = "negMood" 
+        if "想" and "大便" in inputSTR:
+            resultDICT["source_personal"] = "toilet" 
         pass
 
     if utterance == "沒[什麼]可以分享的":

@@ -17,7 +17,8 @@
 DEBUG_other = True
 userDefinedDICT = {"asNoun": ["家裡的人", "奇怪的人", "喜歡的人", "哥們", "身體", "周圍的人", "身邊的人", "大掃除", "天氣", "黃色笑話", "信用卡費", "東西", "遠距離", "月光族", "買一送一", "計畫", "台大", "大便", "老公", "老婆", "阿公", "阿嬤", "閃", "另一半", "教授", "莫名其妙的人", "隔壁的人", "邊緣人", "競賽", "大隊接力", "上司", "副理", "這個月", "授權碼"], "asVerb": ["毛手毛腳", "發生關係", "開黃腔", "霸王硬上弓", "秒殺", "吃土", "錯過", "大小便", "寫論文", "痠", "沒空", "拳打腳踢", "脫魯", "背"], "asAdverb": ["很", "好", "太", "超", "蠻", "有點"], "asAdjective": ["雷", "舒服", "好多", "可怕", "可以"]}
 
-from otherREF import handleSourceOtherDICT
+#from otherREF import handleSourceOtherDICT
+noTicketLIST = ["票","門票","入場卷","入場券","買票","搶票","換票"]
 
 # 將符合句型的參數列表印出。這是 debug 或是開發用的。
 def debugInfo(inputSTR, utterance):
@@ -201,13 +202,17 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[我]買不到[票]":
-        if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("買不到" in inputSTR):
-            resultDICT["source_other"] = "noTicket"
+        for e in noTicketLIST:
+            if e == args[1]:
+                resultDICT['source_other'] = "noTicket" #0911 robin
+        
+        #if any(e in args[1] for e in handleSourceOtherDICT["noTicket"]) in inputSTR and ("買不到" in inputSTR):
+        #    resultDICT["source_other"] = "noTicket"
         pass
 
     if utterance == "[我]踩到[大][便]":
-        if "大便" in inputSTR:
-            resultDICT["source_other"] = "stepInPoop" 
+        if "踩" and "大便" in inputSTR:
+            resultDICT["source_other"] = "stepInPoop"  #0911 
         pass
 
     if utterance == "[我]踩到[屎]":
@@ -360,9 +365,8 @@ def getResult(inputSTR, utterance, args, resultDICT):
         pass
 
     if utterance == "[錢][不夠][用]":
-        resultDICT["source_other"] = args[0]
-        #if "錢" and "不夠用" in inputSTR: #多加 錢 這個條件
-        #    resultDICT["source_other"] = "poor"  
+        if "錢" and "不夠用" in inputSTR: #多加 錢 這個條件
+            resultDICT["source_other"] = "poor"  
         pass
 
     if utterance == "[電腦]壞了":
