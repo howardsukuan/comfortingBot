@@ -302,7 +302,9 @@ def HandleReasons(inputSTR):
         #when the input can be detected by loki
         reactionSTR = [e for e in [reactionDICT[i] for i in reactionDICT.keys()] if len(e) > 0][0]
         #print(reactionDICT)
-        return random.choice(sourceReactionDICT[reactionSTR]), reactionDICT #可以看配對狀況
+        #return random.choice(sourceReactionDICT[reactionSTR]), reactionDICT 
+        #可以看配對狀況
+        return sourceReactionDICT[reactionSTR][0]
     except:
         #when the sentence cannot be detected by loki...
         #condition 1: sentence with ending marker
